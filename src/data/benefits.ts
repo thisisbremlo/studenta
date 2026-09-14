@@ -1,9 +1,27 @@
-export type Category = "development" | "productivity" | "design" | "entertainment" | "cloud" | "learning";
+export type Category =
+  | "development"
+  | "productivity"
+  | "design"
+  | "entertainment"
+  | "cloud"
+  | "learning"
+  | "shopping"
+  | "travel"
+  | "food"
+  | "finance"
+  | "mobility"
+  | "insurance"
+  | "fitness"
+  | "culture"
+  | "hardware";
+
+export type Pricing = "free" | "freemium" | "paid";
 
 export interface Benefit {
   id: string;
   name: string;
   category: Category;
+  pricing: Pricing;
   tagline: string;
   description: string;
   offer: string;
@@ -19,6 +37,15 @@ export const categories: { id: Category; label: string; icon: string }[] = [
   { id: "entertainment", label: "Entertainment", icon: "Headphones" },
   { id: "cloud", label: "Cloud", icon: "Cloud" },
   { id: "learning", label: "Learning", icon: "GraduationCap" },
+  { id: "shopping", label: "Shopping", icon: "ShoppingBag" },
+  { id: "travel", label: "Travel", icon: "Plane" },
+  { id: "food", label: "Food", icon: "UtensilsCrossed" },
+  { id: "finance", label: "Banking", icon: "Landmark" },
+  { id: "mobility", label: "Mobility", icon: "TrainFront" },
+  { id: "insurance", label: "Insurance", icon: "ShieldCheck" },
+  { id: "fitness", label: "Fitness", icon: "Dumbbell" },
+  { id: "culture", label: "Culture", icon: "Theater" },
+  { id: "hardware", label: "Hardware", icon: "Laptop" },
 ];
 
 export const benefits: Benefit[] = [
@@ -26,6 +53,7 @@ export const benefits: Benefit[] = [
     id: "github",
     name: "GitHub Student Developer Pack",
     category: "development",
+    pricing: "free",
     tagline: "Pro tools, free for students",
     description:
       "Free GitHub Pro with Copilot Pro, JetBrains IDEs, free domains, cloud credits, and 100+ partner offers. The single most valuable student pack for developers.",
@@ -38,6 +66,7 @@ export const benefits: Benefit[] = [
     id: "jetbrains",
     name: "JetBrains All Products Pack",
     category: "development",
+    pricing: "free",
     tagline: "Every JetBrains IDE, free",
     description:
       "IntelliJ IDEA Ultimate, PyCharm Professional, WebStorm, CLion, Rider, GoLand, DataGrip, and more — all free with a student license. Renew yearly.",
@@ -50,6 +79,7 @@ export const benefits: Benefit[] = [
     id: "copilot",
     name: "GitHub Copilot Pro",
     category: "development",
+    pricing: "free",
     tagline: "AI pair programming",
     description:
       "AI-powered code completion in VS Code, JetBrains, and Neovim. Included with the GitHub Student Developer Pack at no cost.",
@@ -61,6 +91,7 @@ export const benefits: Benefit[] = [
     id: "cursor",
     name: "Cursor Pro",
     category: "development",
+    pricing: "freemium",
     tagline: "AI-first code editor",
     description:
       "The AI code editor built on VS Code. Students get one year of Cursor Pro with unlimited completions and premium model requests.",
@@ -72,6 +103,7 @@ export const benefits: Benefit[] = [
     id: "perplexity",
     name: "Perplexity Education Pro",
     category: "development",
+    pricing: "paid",
     tagline: "AI research assistant, 50% off",
     description:
       "AI-powered answer engine with advanced models. Students and educators get 50% off the Pro plan after SheerID verification — roughly $9/month instead of $20.",
@@ -83,6 +115,7 @@ export const benefits: Benefit[] = [
     id: "microsoft365",
     name: "Microsoft 365 Education",
     category: "productivity",
+    pricing: "free",
     tagline: "Word, Excel, PowerPoint & 1 TB OneDrive",
     description:
       "Full Office suite including Word, Excel, PowerPoint, OneNote, and Teams — plus 1 TB of OneDrive cloud storage. Free with a valid school email.",
@@ -95,6 +128,7 @@ export const benefits: Benefit[] = [
     id: "notion",
     name: "Notion Education Plus",
     category: "productivity",
+    pricing: "free",
     tagline: "All Plus features, free",
     description:
       "Unlimited blocks, file uploads, version history, and advanced collaboration. Sign up with your school email and switch to the Education plan in billing settings.",
@@ -106,6 +140,7 @@ export const benefits: Benefit[] = [
     id: "figma",
     name: "Figma Education",
     category: "design",
+    pricing: "free",
     tagline: "Professional design, free",
     description:
       "Full Figma Professional plan with unlimited projects, unlimited editors, and FigJam collaborative whiteboarding. The industry-standard UI/UX design tool.",
@@ -118,6 +153,7 @@ export const benefits: Benefit[] = [
     id: "adobe",
     name: "Adobe Creative Cloud",
     category: "design",
+    pricing: "paid",
     tagline: "60%+ off the full suite",
     description:
       "Photoshop, Illustrator, InDesign, Premiere Pro, After Effects, Lightroom, and 20+ more creative apps. Verify with your .edu email through SheerID.",
@@ -129,6 +165,7 @@ export const benefits: Benefit[] = [
     id: "canva",
     name: "Canva for Education",
     category: "design",
+    pricing: "free",
     tagline: "Pro design tools, free",
     description:
       "Canva Pro with 100+ million photos, videos, audio, and graphics. Create presentations, social media, posters, and more — free for students and educators.",
@@ -140,6 +177,7 @@ export const benefits: Benefit[] = [
     id: "autodesk",
     name: "Autodesk Education",
     category: "design",
+    pricing: "free",
     tagline: "AutoCAD, Maya, Fusion 360 & more",
     description:
       "Free 1-year educational licenses for AutoCAD, Fusion 360, Maya, 3ds Max, Revit, Inventor, and the full Autodesk portfolio. Ideal for engineering and 3D design.",
@@ -151,6 +189,7 @@ export const benefits: Benefit[] = [
     id: "unity",
     name: "Unity Student",
     category: "design",
+    pricing: "free",
     tagline: "Game engine, free",
     description:
       "Free Unity Student plan with all core Unity features for game development and real-time 3D. Includes the same engine used by professionals, no watermark.",
@@ -162,6 +201,7 @@ export const benefits: Benefit[] = [
     id: "spotify",
     name: "Spotify Premium Student + Hulu",
     category: "entertainment",
+    pricing: "paid",
     tagline: "Music + TV, bundled",
     description:
       "Ad-free Spotify Premium plus Hulu (With Ads) for a single discounted price. First month free, then $6.99/month. Eligible for up to 4 years.",
@@ -174,6 +214,7 @@ export const benefits: Benefit[] = [
     id: "applemusic",
     name: "Apple Music Student + Apple TV+",
     category: "entertainment",
+    pricing: "paid",
     tagline: "100M songs + Apple TV+, free",
     description:
       "Ad-free Apple Music with Spatial Audio plus free access to Apple TV+ shows like Severance and The Morning Show. $5.99/month for eligible students.",
@@ -185,6 +226,7 @@ export const benefits: Benefit[] = [
     id: "amazon",
     name: "Amazon Prime for Young Adults",
     category: "entertainment",
+    pricing: "paid",
     tagline: "6 months free, then 50% off",
     description:
       "Free 2-day shipping, Prime Video, Prime Music, and 5% cash back. Six months free for students, then $7.49/month or $69/year — half the regular price.",
@@ -196,6 +238,7 @@ export const benefits: Benefit[] = [
     id: "youtube",
     name: "YouTube Premium Student",
     category: "entertainment",
+    pricing: "paid",
     tagline: "Ad-free YouTube + Music",
     description:
       "Ad-free videos, background play, offline downloads, and YouTube Music Premium included. Verify student status with SheerID.",
@@ -207,6 +250,7 @@ export const benefits: Benefit[] = [
     id: "peacock",
     name: "Peacock Premium Student",
     category: "entertainment",
+    pricing: "paid",
     tagline: "NBC, movies & live sports",
     description:
       "Stream NBC shows, blockbuster movies, Premier League, and live sports. Students get Peacock Premium for $2.99/month — 73% off the regular price.",
@@ -218,6 +262,7 @@ export const benefits: Benefit[] = [
     id: "paramount",
     name: "Paramount+ Student",
     category: "entertainment",
+    pricing: "paid",
     tagline: "50% off all plans",
     description:
       "Stream movies, shows, and live sports from Paramount. Students get 50% off any plan for the first 12 months — starting at $4.50/month.",
@@ -229,6 +274,7 @@ export const benefits: Benefit[] = [
     id: "digitalocean",
     name: "DigitalOcean Cloud Credits",
     category: "cloud",
+    pricing: "free",
     tagline: "$200 in cloud hosting",
     description:
       "Spin up droplets, manage Kubernetes, and deploy apps with $200 in DigitalOcean cloud credits. Included in the GitHub Student Developer Pack.",
@@ -240,6 +286,7 @@ export const benefits: Benefit[] = [
     id: "azure",
     name: "Microsoft Azure for Students",
     category: "cloud",
+    pricing: "free",
     tagline: "$100 in Azure credits",
     description:
       "Build, deploy, and manage apps on Microsoft Azure with $100 in free credits and access to free-tier services. No credit card required to start.",
@@ -251,6 +298,7 @@ export const benefits: Benefit[] = [
     id: "namecheap",
     name: "Namecheap .me Domain + SSL",
     category: "cloud",
+    pricing: "free",
     tagline: "Free domain + SSL for 1 year",
     description:
       "Register a free .me domain for one year and get a free SSL certificate. Perfect for building your personal portfolio site. Via the GitHub Student Pack.",
@@ -262,6 +310,7 @@ export const benefits: Benefit[] = [
     id: "namedotcom",
     name: "Name.com Domain",
     category: "cloud",
+    pricing: "free",
     tagline: "Free domain across 25+ extensions",
     description:
       "Get a free domain name for one year from Name.com, available across 25+ extensions. Build your personal brand or project site. Via the GitHub Student Pack.",
@@ -273,6 +322,7 @@ export const benefits: Benefit[] = [
     id: "heroku",
     name: "Heroku Postgres + Dynos",
     category: "cloud",
+    pricing: "free",
     tagline: "Free app hosting tier",
     description:
       "Deploy web apps with Heroku's free dynos and a free Heroku Postgres database. Great for hosting side projects and portfolios. Via the GitHub Student Pack.",
@@ -284,6 +334,7 @@ export const benefits: Benefit[] = [
     id: "frontendmasters",
     name: "Frontend Masters",
     category: "learning",
+    pricing: "free",
     tagline: "Expert-led courses, free",
     description:
       "Access to the full Frontend Masters library of expert-led courses on JavaScript, React, CSS, and more. Free subscription via the GitHub Student Pack.",
@@ -295,6 +346,7 @@ export const benefits: Benefit[] = [
     id: "datacamp",
     name: "DataCamp",
     category: "learning",
+    pricing: "free",
     tagline: "Data science courses, free",
     description:
       "Learn Python, R, SQL, and machine learning with interactive courses and projects. Free 3-month subscription through the GitHub Student Pack.",
@@ -306,6 +358,7 @@ export const benefits: Benefit[] = [
     id: "codecademy",
     name: "Codecademy Pro",
     category: "learning",
+    pricing: "paid",
     tagline: "35% off Pro",
     description:
       "Interactive coding courses in Python, JavaScript, Java, C++, SQL, and more. Get 35% off the Pro subscription with student verification.",
@@ -317,11 +370,818 @@ export const benefits: Benefit[] = [
     id: "nytimes",
     name: "The New York Times",
     category: "learning",
+    pricing: "paid",
     tagline: "Digital access for $1/week",
     description:
       "Unlimited access to NYT articles, cooking, games, and The Athletic. Special introductory rate of $1/week for students for the first year.",
     offer: "$1/week for 1 year",
     url: "https://www.nytimes.com/subscription/student",
     value: "Save 80%+",
+  },
+  {
+    id: "grammarly",
+    name: "Grammarly Premium",
+    category: "productivity",
+    pricing: "freemium",
+    tagline: "AI writing assistant",
+    description:
+      "Grammar, spelling, and style suggestions everywhere you write. The core version is free for students; Premium unlocks advanced suggestions.",
+    offer: "Free basic plan",
+    url: "https://www.grammarly.com",
+    value: "€12/month (Premium)",
+  },
+  {
+    id: "zotero",
+    name: "Zotero",
+    category: "productivity",
+    pricing: "free",
+    tagline: "Reference manager, free for everyone",
+    description:
+      "Collect, organize, cite, and share your research sources. The open-source reference manager every thesis writer needs — completely free.",
+    offer: "Free",
+    url: "https://www.zotero.org",
+    value: "Priceless for your thesis",
+  },
+  {
+    id: "anki",
+    name: "Anki",
+    category: "learning",
+    pricing: "free",
+    tagline: "Spaced-repetition flashcards",
+    description:
+      "The memorization powerhouse used by medical students worldwide. Desktop and Android versions are free — only the iOS app costs money.",
+    offer: "Free (Desktop/Android)",
+    url: "https://apps.ankiweb.net",
+    value: "€27.99 (iOS)",
+  },
+  {
+    id: "obsidian",
+    name: "Obsidian",
+    category: "productivity",
+    pricing: "freemium",
+    tagline: "Markdown notes on a knowledge graph",
+    description:
+      "A powerful note-taking app built on local Markdown files. Free for personal use including all core plugins; Sync and Publish are paid.",
+    offer: "Free core app",
+    url: "https://obsidian.md",
+    value: "$2.4/month (Sync)",
+  },
+  {
+    id: "appletvplus",
+    name: "Apple TV+ with Apple Music Student",
+    category: "entertainment",
+    pricing: "free",
+    tagline: "Apple TV+ included at no cost",
+    description:
+      "Subscribe to Apple Music's student plan and get Apple TV+ included for free — Severance, Ted Lasso, and more at no extra charge.",
+    offer: "Included free",
+    url: "https://www.apple.com/de/apple-tv-plus/",
+    value: "€6.99/month saved",
+  },
+  {
+    id: "quizlet",
+    name: "Quizlet Plus",
+    category: "learning",
+    pricing: "freemium",
+    tagline: "Flashcards & study modes",
+    description:
+      "Create flashcards and study with learn, test, and game modes. The basic version is free; Plus unlocks advanced creation and offline access.",
+    offer: "Free basic plan",
+    url: "https://quizlet.com",
+    value: "€7.99/month (Plus)",
+  },
+  {
+    id: "studysmarter",
+    name: "StudySmarter",
+    category: "learning",
+    pricing: "freemium",
+    tagline: "Study app made in Germany",
+    description:
+      "Shared flashcards, study groups, and summaries synced across devices. Free basic plan for students, Vaia Plus is the paid tier.",
+    offer: "Free basic plan",
+    url: "https://studysmarter.de",
+    value: "€9.99/month (Plus)",
+  },
+  {
+    id: "khanacademy",
+    name: "Khan Academy",
+    category: "learning",
+    pricing: "free",
+    tagline: "Free courses on everything",
+    description:
+      "World-class lessons in math, science, economics, and more with practice exercises and progress tracking. Nonprofit and 100% free forever.",
+    offer: "Free",
+    url: "https://de.khanacademy.org",
+    value: "Free forever",
+  },
+  {
+    id: "duolingo",
+    name: "Duolingo Super",
+    category: "learning",
+    pricing: "freemium",
+    tagline: "Language learning, gamified",
+    description:
+      "Learn 40+ languages with bite-sized daily lessons. The free tier covers everything; Super removes ads and adds unlimited hearts.",
+    offer: "Free basic plan",
+    url: "https://www.duolingo.com",
+    value: "€12.99/month (Super)",
+  },
+  {
+    id: "blinkist",
+    name: "Blinkist",
+    category: "learning",
+    pricing: "paid",
+    tagline: "Book summaries in 15 minutes",
+    description:
+      "Key insights from thousands of nonfiction books and podcasts as 15-minute reads or audio. Student discount brings it to about €6.67/month.",
+    offer: "~55% off (€6.67/month)",
+    url: "https://www.blinkist.com/de",
+    value: "Save €8.32/month",
+  },
+  {
+    id: "coursera",
+    name: "Coursera",
+    category: "learning",
+    pricing: "freemium",
+    tagline: "University courses, free to audit",
+    description:
+      "Courses from Stanford, Google, IBM, and hundreds of universities. Audit nearly any course for free; certificates and graded work need Plus.",
+    offer: "Free (Audit mode)",
+    url: "https://www.coursera.org",
+    value: "$59/month (Plus)",
+  },
+  {
+    id: "edx",
+    name: "edX",
+    category: "learning",
+    pricing: "free",
+    tagline: "MIT & Harvard courses, free to audit",
+    description:
+      "Access courses from MIT, Harvard, and top universities worldwide in audit mode at no cost — a goldmine for computer science and engineering students.",
+    offer: "Free (Audit mode)",
+    url: "https://www.edx.org",
+    value: "Free",
+  },
+  {
+    id: "asos",
+    name: "ASOS Student",
+    category: "shopping",
+    pricing: "paid",
+    tagline: "10% off everything",
+    description:
+      "10% off fashion orders at ASOS after student verification via UNiDAYS — stacks on top of existing sale prices.",
+    offer: "10% off",
+    url: "https://www.asos.com/de/",
+    value: "Save 10%",
+  },
+  {
+    id: "aboutyou",
+    name: "ABOUT YOU Student",
+    category: "shopping",
+    pricing: "paid",
+    tagline: "10% off fashion",
+    description:
+      "Verified students get 10% off their orders at ABOUT YOU, one of Europe's biggest online fashion retailers.",
+    offer: "10% off",
+    url: "https://www.aboutyou.de",
+    value: "Save 10%",
+  },
+  {
+    id: "nike",
+    name: "Nike Student",
+    category: "shopping",
+    pricing: "paid",
+    tagline: "20% off sneakers & apparel",
+    description:
+      "One of the best student fashion discounts out there: 20% off at Nike.com after verifying with UNiDAYS or SheerID.",
+    offer: "20% off",
+    url: "https://www.nike.com/de/",
+    value: "Save 20%",
+  },
+  {
+    id: "adidas",
+    name: "adidas Student",
+    category: "shopping",
+    pricing: "paid",
+    tagline: "15% off sportswear",
+    description:
+      "15% off full-price items on adidas.com for verified students — often combinable with ongoing sales.",
+    offer: "15% off",
+    url: "https://www.adidas.de/",
+    value: "Save 15%",
+  },
+  {
+    id: "zalando",
+    name: "Zalando via UNiDAYS",
+    category: "shopping",
+    pricing: "paid",
+    tagline: "10% off via UNiDAYS",
+    description:
+      "Europe's biggest fashion platform offers students 10% off through UNiDAYS verification — applies during periodic student promotions.",
+    offer: "10% off",
+    url: "https://www.myunidays.com/DE/de-DE",
+    value: "Save 10%",
+  },
+  {
+    id: "samsung",
+    name: "Samsung Education Store",
+    category: "shopping",
+    pricing: "paid",
+    tagline: "Up to 15% off phones & laptops",
+    description:
+      "Student pricing on Galaxy phones, tablets, laptops, and monitors — up to 15% off plus extra promotions on top.",
+    offer: "Up to 15% off",
+    url: "https://www.samsung.com/de/",
+    value: "Save up to 15%",
+  },
+  {
+    id: "hostelworld",
+    name: "Hostelworld Student",
+    category: "travel",
+    pricing: "paid",
+    tagline: "10% off hostel bookings",
+    description:
+      "10% off hostel stays worldwide for students — perfect for semester breaks and interrail trips on a budget.",
+    offer: "10% off",
+    url: "https://www.hostelworld.com",
+    value: "Save 10%",
+  },
+  {
+    id: "flixtrain",
+    name: "FlixTrain Student",
+    category: "travel",
+    pricing: "paid",
+    tagline: "15% off train tickets",
+    description:
+      "Students save 15% on FlixTrain long-distance train tickets across Germany — cheap weekend trips home.",
+    offer: "15% off",
+    url: "https://www.flixtrain.de",
+    value: "Save 15%",
+  },
+  {
+    id: "hotelscom",
+    name: "Hotels.com Student",
+    category: "travel",
+    pricing: "paid",
+    tagline: "10% off hotel bookings",
+    description:
+      "10% off select hotel bookings for verified students — book your travel for field trips and vacations for less.",
+    offer: "10% off",
+    url: "https://www.hotels.com",
+    value: "Save 10%",
+  },
+  {
+    id: "fluege",
+    name: "fluege.de Student",
+    category: "travel",
+    pricing: "paid",
+    tagline: "€10 off flight bookings",
+    description:
+      "Get a one-time €10 discount on flight bookings as a student — handy for semester-abroad travel and gap-year trips.",
+    offer: "€10 off",
+    url: "https://www.fluege.de",
+    value: "Save €10",
+  },
+  {
+    id: "emirates",
+    name: "Emirates Student",
+    category: "travel",
+    pricing: "paid",
+    tagline: "10% off long-haul flights",
+    description:
+      "Students fly 10% cheaper with Emirates, including extra baggage allowance on eligible fares — great for study abroad and travel home.",
+    offer: "10% off",
+    url: "https://www.emirates.com/de/",
+    value: "Save 10%",
+  },
+  {
+    id: "lieferando",
+    name: "Lieferando Student",
+    category: "food",
+    pricing: "paid",
+    tagline: "€12–13 one-time discount",
+    description:
+      "One-time student discount of €12–13 off your Lieferando order after verification — a free dinner on them.",
+    offer: "€12–13 off (one-time)",
+    url: "https://www.lieferando.de",
+    value: "Save ~€12",
+  },
+  {
+    id: "mcdonalds",
+    name: "McDonald's via Lieferando",
+    category: "food",
+    pricing: "paid",
+    tagline: "€10 off delivery",
+    description:
+      "Order McDonald's through Lieferando as a student and get a one-time €10 discount on your delivery.",
+    offer: "€10 off (one-time)",
+    url: "https://www.lieferando.de",
+    value: "Save €10",
+  },
+  {
+    id: "ing",
+    name: "ING Girokonto",
+    category: "finance",
+    pricing: "free",
+    tagline: "Free checking account for students",
+    description:
+      "Germany's popular direct bank waives all account management fees for students — free card, free payments, no minimum income required.",
+    offer: "Free while enrolled",
+    url: "https://www.ing.de",
+    value: "€4.90/month saved",
+  },
+  {
+    id: "sparkasse",
+    name: "Sparkasse Girokonto",
+    category: "finance",
+    pricing: "free",
+    tagline: "Free student account at your local branch",
+    description:
+      "Most local Sparkasse branches offer students a free checking account with debit card — useful if you want in-person banking.",
+    offer: "Free while enrolled",
+    url: "https://www.sparkasse.de",
+    value: "€3–5/month saved",
+  },
+  {
+    id: "comdirect",
+    name: "Comdirect Girokonto",
+    category: "finance",
+    pricing: "free",
+    tagline: "Free online checking account",
+    description:
+      "Commerzbank's direct-banking brand gives students a free current account including a Visa debit card.",
+    offer: "Free while enrolled",
+    url: "https://www.comdirect.de",
+    value: "€4.90/month saved",
+  },
+  {
+    id: "sparda",
+    name: "Sparda-Bank Girokonto",
+    category: "finance",
+    pricing: "free",
+    tagline: "Free account, no age limit tricks",
+    description:
+      "Students bank for free at Sparda-Bank — no account management fees while enrolled, with debit card and online banking included.",
+    offer: "Free while enrolled",
+    url: "https://www.sparda.de",
+    value: "€3–5/month saved",
+  },
+  {
+    id: "bahncard",
+    name: "Deutsche Bahn BahnCard 50",
+    category: "mobility",
+    pricing: "paid",
+    tagline: "50% off every train ride",
+    description:
+      "Students pay only about €60/year instead of €127 for the BahnCard 50 — half price on all DB journeys, pays for itself in a few trips.",
+    offer: "~€60/year (was €127)",
+    url: "https://www.bahn.de",
+    value: "Save ~53%",
+    featured: true,
+  },
+  {
+    id: "sixt",
+    name: "Sixt Student",
+    category: "mobility",
+    pricing: "paid",
+    tagline: "Special rental car rates",
+    description:
+      "Students get special rates on Sixt rental cars — useful for moving apartments or weekend getaways when trains don't cut it.",
+    offer: "Special student rates",
+    url: "https://www.sixt.de",
+    value: "Variable savings",
+  },
+  {
+    id: "starcar",
+    name: "Starcar Student",
+    category: "mobility",
+    pricing: "paid",
+    tagline: "Discounted car & transporter rentals",
+    description:
+      "Student special rates on rental cars and transporters at Starcar — the budget option for moving day.",
+    offer: "Special student rates",
+    url: "https://www.starcar.de",
+    value: "Variable savings",
+  },
+  {
+    id: "mendeley",
+    name: "Mendeley",
+    category: "productivity",
+    pricing: "free",
+    tagline: "Reference manager by Elsevier",
+    description:
+      "Free reference manager and academic social network. Organize PDFs, annotate, and auto-generate citations in Word or LaTeX.",
+    offer: "Free",
+    url: "https://www.mendeley.com",
+    value: "Free reference management",
+  },
+  {
+    id: "citavi",
+    name: "Citavi",
+    category: "productivity",
+    pricing: "free",
+    tagline: "Reference & knowledge management",
+    description:
+      "Popular German reference manager for literature research and citations. Free for students at many universities via campus licenses.",
+    offer: "Free (Campus license)",
+    url: "https://www.citavi.com",
+    value: "€119/year (regular)",
+  },
+  {
+    id: "netflix",
+    name: "Netflix",
+    category: "entertainment",
+    pricing: "paid",
+    tagline: "Streaming — no student discount",
+    description:
+      "The biggest streaming service has no student pricing. Listed here so you know: don't expect a discount, and maybe share a plan instead.",
+    offer: "No student discount",
+    url: "https://www.netflix.com/de/",
+    value: "From €7.99/month",
+  },
+  {
+    id: "disneyplus",
+    name: "Disney+",
+    category: "entertainment",
+    pricing: "paid",
+    tagline: "Streaming — no student discount",
+    description:
+      "Disney, Marvel, Star Wars, and Pixar — but no student pricing in Germany. Bundle options with other services may save you more.",
+    offer: "No student discount",
+    url: "https://www.disneyplus.com/de",
+    value: "From €8.99/month",
+  },
+  {
+    id: "audible",
+    name: "Audible Student",
+    category: "entertainment",
+    pricing: "paid",
+    tagline: "50% off audiobooks",
+    description:
+      "One audiobook credit per month plus exclusive originals. Students pay €4.99/month instead of €9.99 — half price while enrolled.",
+    offer: "€4.99/month (was €9.99)",
+    url: "https://www.audible.de",
+    value: "Save 50%",
+  },
+  {
+    id: "skyticket",
+    name: "Sky Ticket Student",
+    category: "entertainment",
+    pricing: "paid",
+    tagline: "50% off sports & shows",
+    description:
+      "Bundesliga, F1, and Sky original series streamed live. Students pay €14.99/month instead of €29.99.",
+    offer: "€14.99/month (was €29.99)",
+    url: "https://www.sky.de",
+    value: "Save 50%",
+  },
+  {
+    id: "jstor",
+    name: "JSTOR Personal Account",
+    category: "learning",
+    pricing: "free",
+    tagline: "Academic journals, free tier",
+    description:
+      "Registered personal accounts can read 10 articles per 30 days free from JSTOR's scholarly archive. Access through your university library is usually far more generous — check there first for term papers.",
+    offer: "10 articles/30 days free",
+    url: "https://about.jstor.org/students-and-researchers/",
+    value: "$19.50/month (regular)",
+  },
+  {
+    id: "googleaiplus",
+    name: "Google AI Plus for Students",
+    category: "learning",
+    pricing: "free",
+    tagline: "Gemini Pro free for 1 year",
+    description:
+      "Google gives students a free year of its AI Plus plan: Gemini advanced models, NotebookLM Plus, and 2 TB storage for studying.",
+    offer: "Free 1-year subscription",
+    url: "https://blog.google/intl/de-de/produkte/suchen-entdecken/gemini-lernfunktionen-kostenloses-abo/",
+    value: "$20/month value",
+  },
+  {
+    id: "isic",
+    name: "ISIC Card",
+    category: "mobility",
+    pricing: "paid",
+    tagline: "The international student ID",
+    description:
+      "The UNESCO-endorsed international student identity card unlocks tens of thousands of discounts in 130+ countries worldwide.",
+    offer: "€15/year",
+    url: "https://www.isic.de",
+    value: "Discounts in 130+ countries",
+  },
+  {
+    id: "appleedu",
+    name: "Apple Education Store",
+    category: "shopping",
+    pricing: "paid",
+    tagline: "5–15% off + gift card",
+    description:
+      "Students get 5–9% off Macs and iPads, often plus a gift card of up to €120 during back-to-school promos — directly in Apple's education store.",
+    offer: "5–15% off",
+    url: "https://www.apple.com/de-edu/shop",
+    value: "Save up to €120 extra",
+  },
+  {
+    id: "ikea",
+    name: "IKEA Student (Back-to-College)",
+    category: "shopping",
+    pricing: "paid",
+    tagline: "15% off, seasonal",
+    description:
+      "During IKEA's seasonal back-to-college campaigns students save 15% on furnishings — perfect for setting up your first dorm or WG room.",
+    offer: "15% off (seasonal)",
+    url: "https://www.ikea.com",
+    value: "Save 15%",
+  },
+  {
+    id: "home24",
+    name: "home24 Student",
+    category: "shopping",
+    pricing: "paid",
+    tagline: "11% off furniture & decor",
+    description:
+      "11% student discount on furniture, lamps, and home accessories at home24 — build your study den for less.",
+    offer: "11% off",
+    url: "https://www.home24.de",
+    value: "Save 11%",
+  },
+  {
+    id: "emma",
+    name: "Emma Matratze Student",
+    category: "shopping",
+    pricing: "paid",
+    tagline: "15% off mattresses",
+    description:
+      "15% off Emma mattresses and bedding for students — because good sleep is the cheapest study performance booster.",
+    offer: "15% off",
+    url: "https://www.emma-matratze.de",
+    value: "Save 15%",
+  },
+  {
+    id: "studentuniverse",
+    name: "StudentUniverse",
+    category: "travel",
+    pricing: "paid",
+    tagline: "Up to 20% off flights",
+    description:
+      "Flight bookings for verified students with fares up to 20% below regular prices — built specifically for student travel.",
+    offer: "Up to 20% off",
+    url: "https://www.studentuniverse.de",
+    value: "Save up to 20%",
+  },
+  {
+    id: "foodora",
+    name: "Foodora Student",
+    category: "food",
+    pricing: "paid",
+    tagline: "€5–10 off food delivery",
+    description:
+      "Foodora's pink riders deliver with periodic student discounts of €5–10 on your order — another reason to skip cooking.",
+    offer: "€5–10 off",
+    url: "https://www.foodora.de",
+    value: "Save €5–10",
+  },
+  {
+    id: "dkb",
+    name: "DKB Girokonto",
+    category: "finance",
+    pricing: "free",
+    tagline: "Free account + free card worldwide",
+    description:
+      "Germany's largest direct bank gives students a free checking account with a Visa debit card that's free to use at ATMs worldwide.",
+    offer: "Free while enrolled",
+    url: "https://www.dkb.de",
+    value: "€4.90/month saved",
+  },
+  {
+    id: "hanseatic",
+    name: "Hanseatic Credit Card",
+    category: "finance",
+    pricing: "free",
+    tagline: "Fee-free student credit card",
+    description:
+      "Student versions of credit cards like Hanseatic Bank's waive the usual €20–40 annual fee — build a credit history for free.",
+    offer: "Free annual fee",
+    url: "https://www.hanseatic-bank.de",
+    value: "€20–40/year saved",
+  },
+  {
+    id: "kv-u25",
+    name: "Health Insurance (under 25)",
+    category: "insurance",
+    pricing: "free",
+    tagline: "Family coverage — €0 per month",
+    description:
+      "If you're under 25 and studying, you're covered free through family insurance with statutory health insurers like TK, AOK, or Barmer.",
+    offer: "Free (family coverage)",
+    url: "https://www.studysmarter.de/s/versicherung/krankenkasse/studenten/",
+    value: "~€140/month saved",
+    featured: true,
+  },
+  {
+    id: "kv-25-30",
+    name: "Health Insurance (25–30)",
+    category: "insurance",
+    pricing: "paid",
+    tagline: "Student rate ~€130–140/month",
+    description:
+      "Students over 25 pay the discounted student statutory rate of roughly €130–140/month instead of the full ~€230 voluntary rate.",
+    offer: "~€130–140/month",
+    url: "https://www.studysmarter.de/s/versicherung/krankenkasse/studenten/",
+    value: "Save ~40%",
+  },
+  {
+    id: "haftpflicht",
+    name: "Liability Insurance (Young Tariff)",
+    category: "insurance",
+    pricing: "paid",
+    tagline: "Private liability from ~€30/year",
+    description:
+      "Personal liability insurance is the one policy everyone should have. Young/student tariffs from insurers like HDI cost about €30–35/year.",
+    offer: "~€30–35/year",
+    url: "https://www.hdi.de",
+    value: "Save ~30%",
+  },
+  {
+    id: "mcfit",
+    name: "McFit Student",
+    category: "fitness",
+    pricing: "paid",
+    tagline: "~17% off gym membership",
+    description:
+      "Germany's biggest gym chain offers students a discounted membership of about €24.99/month instead of €29.99 — via UNiDAYS.",
+    offer: "~€24.99/month",
+    url: "https://www.myunidays.com/DE/de-DE/partners/mcfit/view",
+    value: "Save ~17%",
+  },
+  {
+    id: "allinclusive",
+    name: "All Inclusive Fitness",
+    category: "fitness",
+    pricing: "paid",
+    tagline: "40% off gym membership",
+    description:
+      "Multi-gym access across Germany with student pricing around €17.99/month instead of €29.99 — via UNiDAYS.",
+    offer: "€17.99/month (was €29.99)",
+    url: "https://www.myunidays.com/DE/de-DE",
+    value: "Save 40%",
+  },
+  {
+    id: "hochschulsport",
+    name: "University Sports (Hochschulsport)",
+    category: "fitness",
+    pricing: "free",
+    tagline: "Cheap courses from your university",
+    description:
+      "Yoga, climbing, football, rowing — university sports programs cost between €0 and €30 per semester, a fraction of commercial gyms.",
+    offer: "€0–30/semester",
+    url: "https://www.studis-online.de/Studieren/studi-apps.php",
+    value: "Save 100% vs. gym",
+  },
+  {
+    id: "smb",
+    name: "SMB Museums Berlin",
+    category: "culture",
+    pricing: "paid",
+    tagline: "50% off Berlin museum island",
+    description:
+      "Pergamon, Neues Museum, Alte Nationalgalerie — students pay €7–8 instead of €14–16 at Berlin's State Museums.",
+    offer: "€7–8 (was €14–16)",
+    url: "https://www.smb.museum",
+    value: "Save 50%",
+  },
+  {
+    id: "philharmoniker",
+    name: "Berliner Philharmoniker (Standby)",
+    category: "culture",
+    pricing: "paid",
+    tagline: "Standby tickets for €15",
+    description:
+      "World-class orchestra, budget price: standby tickets for students cost €15 instead of the regular €50–100. Worth the queue.",
+    offer: "€15 standby (was €50–100)",
+    url: "https://www.berliner-philharmoniker.de",
+    value: "Save 70–85%",
+  },
+  {
+    id: "deutschestheater",
+    name: "Deutsches Theater Berlin",
+    category: "culture",
+    pricing: "paid",
+    tagline: "50% off theater tickets",
+    description:
+      "Students see premieres and classics at Berlin's Deutsches Theater for €10–15 instead of €20–40.",
+    offer: "€10–15 (was €20–40)",
+    url: "https://www.deutschestheater.de",
+    value: "Save 50%",
+  },
+  {
+    id: "yorck",
+    name: "Yorck Kinos Berlin",
+    category: "culture",
+    pricing: "paid",
+    tagline: "Cinema Tuesdays/Wednesdays for less",
+    description:
+      "Arthouse and mainstream cinema at Babylon Mitte and Yorck venues: student tickets €6–8 on Tuesdays and Wednesdays instead of €12–14.",
+    offer: "€6–8 (was €12–14)",
+    url: "https://www.yorck.de",
+    value: "Save 40–50%",
+  },
+  {
+    id: "zooberlin",
+    name: "Zoo Berlin",
+    category: "culture",
+    pricing: "paid",
+    tagline: "Student day ticket €13.50",
+    description:
+      "Germany's oldest and most species-rich zoo offers students entry at €13.50 instead of €17 — a cheap study break in the Tiergarten.",
+    offer: "€13.50 (was €17)",
+    url: "https://www.zoo-berlin.de",
+    value: "Save 21%",
+  },
+  {
+    id: "surface",
+    name: "Microsoft Surface (Student)",
+    category: "hardware",
+    pricing: "paid",
+    tagline: "5–10% off Surface devices",
+    description:
+      "Surface laptops, tablets, and accessories at student pricing via Microsoft's education store — typically 5–10% off.",
+    offer: "5–10% off",
+    url: "https://www.microsoft.com/de-de/store/b/education",
+    value: "Save ~10%",
+  },
+  {
+    id: "macbook",
+    name: "Apple MacBook (Education Store)",
+    category: "hardware",
+    pricing: "paid",
+    tagline: "5–9% off + gift card",
+    description:
+      "MacBook Air and Pro at education pricing with occasional gift cards up to €120 — the standard setup for design and CS students.",
+    offer: "5–9% off",
+    url: "https://www.apple.com/de-edu/shop",
+    value: "Save up to €120 extra",
+  },
+  {
+    id: "ipad",
+    name: "Apple iPad (Education Store)",
+    category: "hardware",
+    pricing: "paid",
+    tagline: "5–7% off + gift card",
+    description:
+      "iPads at education pricing, often with gift cards up to €80 during promo season — great for handwritten notes with Apple Pencil.",
+    offer: "5–7% off",
+    url: "https://www.apple.com/de-edu/shop",
+    value: "Save up to €80 extra",
+  },
+  {
+    id: "applecare",
+    name: "AppleCare+ (Student)",
+    category: "hardware",
+    pricing: "paid",
+    tagline: "10% off device protection",
+    description:
+      "Extend coverage for your education-store Mac or iPad with 10% off AppleCare+ — cheap insurance for an expensive device.",
+    offer: "10% off",
+    url: "https://www.apple.com/de-edu/shop",
+    value: "Save 10%",
+  },
+  {
+    id: "codex",
+    name: "OpenAI Codex Student Perk",
+    category: "development",
+    pricing: "free",
+    tagline: "2,500 extra Codex credits",
+    description:
+      "A one-time reserve of 2,500 Codex credits that kicks in after your regular weekly allowance runs out. Verify your enrollment status, then claim it in the Codex student perks area.",
+    offer: "Free credit top-up",
+    url: "https://openai.com/codex/",
+    value: "2,500 extra credits",
+  },
+  {
+    id: "kiro",
+    name: "Kiro for Students",
+    category: "development",
+    pricing: "free",
+    tagline: "AI-assisted development program",
+    description:
+      "Kiro's student program for AI-powered software development. Check whether your university is on the eligible institutions list before signing up.",
+    offer: "Depends on university",
+    url: "https://kiro.dev/students",
+    value: "Varies by program",
+  },
+  {
+    id: "runway",
+    name: "Runway Academic Discount",
+    category: "design",
+    pricing: "paid",
+    tagline: "AI video & image generation, discounted",
+    description:
+      "Academic discount on Runway's AI video and image generation tools for verified students and educators — check the final price during verification/checkout, as it varies by region and plan.",
+    offer: "Academic discount",
+    url: "https://runwayml.com",
+    value: "Varies by plan",
   },
 ];
