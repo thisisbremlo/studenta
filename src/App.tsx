@@ -120,6 +120,7 @@ function App() {
   const [activeCategory, setActiveCategory] = useState<Category | "all">("all");
   const [activePricing, setActivePricing] = useState<Pricing | "all">("all");
   const [filterOpen, setFilterOpen] = useState(false);
+  const [categoryOpen, setCategoryOpen] = useState(false);
 
   const filtered = useMemo(() => {
     return benefits.filter((b) => {
@@ -157,8 +158,90 @@ function App() {
           {t("heroSubtitle")}
         </p>
 
-        {/* Search + pricing filter */}
-        <div className="relative mx-auto mt-6 max-w-sm">
+        {/* Search + category + pricing filter */}
+        <div className="relative mx-auto mt-6 flex max-w-md items-center gap-2">
+          {/* Category dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => setCategoryOpen((o) => !o)}
+              aria-expanded={categoryOpen}
+              className={`inline-flex h-10 items-center gap-1.5 rounded-md border px-3 text-sm font-medium transition-all ${
+                activeCategory !== "all"
+                  ? "border-primary/50 bg-primary text-primary-foreground"
+                  : "border-input bg-secondary text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {(() => {
+                const activeCat = categories.find((c) => c.id === activeCategory);
+                const Icon = activeCat ? iconMap[activeCat.icon] : LayoutGrid;
+                return (
+                  <>
+                    <Icon className="h-3.5 w-3.5" />
+                    <span className="max-w-24 truncate">
+                      {activeCat ? (locale === "de" ? activeCat.labelDe : activeCat.label) : t("categoryAll")}
+                    </span>
+                    <ChevronDown className={`h-3.5 w-3.5 transition-transform ${categoryOpen ? "rotate-180" : ""}`} />
+                  </>
+                );
+              })()}
+            </button>
+
+            {categoryOpen && (
+              <>
+                <div
+                  className="fixed inset-0 z-40"
+                  onClick={() => setCategoryOpen(false)}
+                  aria-hidden="true"
+                />
+                <div className="no-scrollbar absolute left-0 top-full z-50 mt-2 max-h-72 w-48 overflow-y-auto rounded-md border border-border bg-card py-1 shadow-lg">
+                  <button
+                    onClick={() => {
+                      setActiveCategory("all");
+                      setCategoryOpen(false);
+                    }}
+                    className={`flex w-full items-center justify-between px-3 py-1.5 text-left text-sm transition-colors ${
+                      activeCategory === "all"
+                        ? "bg-accent font-medium text-accent-foreground"
+                        : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <LayoutGrid className="h-3 w-3" />
+                      {t("categoryAll")}
+                    </span>
+                    {activeCategory === "all" && <Check className="h-3.5 w-3.5" />}
+                  </button>
+                  {categories.map((cat) => {
+                    const Icon = iconMap[cat.icon];
+                    const isActive = activeCategory === cat.id;
+                    return (
+                      <button
+                        key={cat.id}
+                        onClick={() => {
+                          setActiveCategory(cat.id);
+                          setCategoryOpen(false);
+                        }}
+                        className={`flex w-full items-center justify-between px-3 py-1.5 text-left text-sm transition-colors ${
+                          isActive
+                            ? "bg-accent font-medium text-accent-foreground"
+                            : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                        }`}
+                      >
+                        <span className="flex items-center gap-2">
+                          <Icon className="h-3 w-3" />
+                          {locale === "de" ? cat.labelDe : cat.label}
+                        </span>
+                        {isActive && <Check className="h-3.5 w-3.5" />}
+                      </button>
+                    );
+                  })}
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* Search + pricing filter */}
+          <div className="relative flex-1">
           <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <input
             type="text"
@@ -214,45 +297,7 @@ function App() {
               </div>
             </>
           )}
-        </div>
-      </section>
-
-      {/* Filters */}
-      <section
-        aria-label="Categories"
-        className="md:mx-auto md:max-w-5xl md:px-6"
-      >
-        <div className="no-scrollbar w-full overflow-x-auto overscroll-x-contain">
-        <div className="flex w-max items-center gap-2 px-6 md:px-0">
-          <button
-            onClick={() => setActiveCategory("all")}
-            className={`shrink-0 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
-              activeCategory === "all"
-                ? "bg-primary text-primary-foreground"
-                : "border border-border text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            {t("categoryAll")}
-          </button>
-          {categories.map((cat) => {
-            const Icon = iconMap[cat.icon];
-            const isActive = activeCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`inline-flex shrink-0 items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
-                  isActive
-                    ? "bg-primary text-primary-foreground"
-                    : "border border-border text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                <Icon className="h-3.5 w-3.5" />
-                {locale === "de" ? cat.labelDe : cat.label}
-              </button>
-            );
-          })}
-        </div>
+          </div>
         </div>
       </section>
 
