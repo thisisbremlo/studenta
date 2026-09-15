@@ -218,11 +218,14 @@ function App() {
       </section>
 
       {/* Filters */}
-      <section className="mx-auto max-w-5xl px-6">
-        <div className="flex flex-wrap justify-center gap-2">
+      <section
+        aria-label="Categories"
+        className="no-scrollbar -mx-6 overflow-x-auto overscroll-x-contain px-6"
+      >
+        <div className="mx-auto flex w-max max-w-full items-center gap-2 px-6">
           <button
             onClick={() => setActiveCategory("all")}
-            className={`rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
+            className={`shrink-0 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
               activeCategory === "all"
                 ? "bg-primary text-primary-foreground"
                 : "border border-border text-muted-foreground hover:text-foreground"
@@ -237,7 +240,7 @@ function App() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
+                className={`inline-flex shrink-0 items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
                   isActive
                     ? "bg-primary text-primary-foreground"
                     : "border border-border text-muted-foreground hover:text-foreground"
