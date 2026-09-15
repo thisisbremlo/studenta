@@ -36,10 +36,10 @@ export function SiteHeader({ showThemeToggle = true }: { showThemeToggle?: boole
           {showThemeToggle && (
             <button
               onClick={() => setDark((d) => !d)}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border transition-colors hover:bg-accent"
+              className="inline-flex h-6 w-8 items-center justify-center rounded-md border border-border transition-colors hover:bg-accent"
               aria-label={t("toggleTheme")}
             >
-              {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              {dark ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
             </button>
           )}
         </div>
