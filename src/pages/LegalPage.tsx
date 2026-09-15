@@ -22,9 +22,6 @@ export function LegalPage({ kind }: { kind: "imprint" | "privacy" }) {
 
   useEffect(() => {
     document.title = seoTitle;
-    // Legal pages default to dark mode
-    document.documentElement.classList.add("dark");
-    return () => document.documentElement.classList.remove("dark");
   }, [seoTitle]);
 
   return (

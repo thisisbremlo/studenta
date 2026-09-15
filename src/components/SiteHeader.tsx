@@ -2,12 +2,17 @@ import { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useLocale, type Locale } from "@/i18n/locale";
 
-export function SiteHeader({ showThemeToggle = true }: { showThemeToggle?: boolean }) {
+function getInitialDark() {
+  return localStorage.getItem("theme") !== "light";
+}
+
+export function SiteHeader() {
   const { locale, setLocale, t } = useLocale();
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(getInitialDark);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
+    localStorage.setItem("theme", dark ? "dark" : "light");
   }, [dark]);
 
   return (
@@ -33,15 +38,13 @@ export function SiteHeader({ showThemeToggle = true }: { showThemeToggle?: boole
               </button>
             ))}
           </div>
-          {showThemeToggle && (
-            <button
-              onClick={() => setDark((d) => !d)}
-              className="inline-flex h-6 w-8 items-center justify-center rounded-md border border-border transition-colors hover:bg-accent"
-              aria-label={t("toggleTheme")}
-            >
-              {dark ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
-            </button>
-          )}
+          <button
+            onClick={() => setDark((d) => !d)}
+            className="inline-flex h-6 w-8 items-center justify-center rounded-md border border-border transition-colors hover:bg-accent"
+            aria-label={t("toggleTheme")}
+          >
+            {dark ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+          </button>
         </div>
       </div>
     </header>
