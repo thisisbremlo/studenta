@@ -30,22 +30,22 @@ export interface Benefit {
   featured?: boolean;
 }
 
-export const categories: { id: Category; label: string; icon: string }[] = [
-  { id: "development", label: "Development", icon: "Code2" },
-  { id: "productivity", label: "Productivity", icon: "LayoutGrid" },
-  { id: "design", label: "Design", icon: "PenTool" },
-  { id: "entertainment", label: "Entertainment", icon: "Headphones" },
-  { id: "cloud", label: "Cloud", icon: "Cloud" },
-  { id: "learning", label: "Learning", icon: "GraduationCap" },
-  { id: "shopping", label: "Shopping", icon: "ShoppingBag" },
-  { id: "travel", label: "Travel", icon: "Plane" },
-  { id: "food", label: "Food", icon: "UtensilsCrossed" },
-  { id: "finance", label: "Banking", icon: "Landmark" },
-  { id: "mobility", label: "Mobility", icon: "TrainFront" },
-  { id: "insurance", label: "Insurance", icon: "ShieldCheck" },
-  { id: "fitness", label: "Fitness", icon: "Dumbbell" },
-  { id: "culture", label: "Culture", icon: "Theater" },
-  { id: "hardware", label: "Hardware", icon: "Laptop" },
+export const categories: { id: Category; label: string; labelDe: string; icon: string }[] = [
+  { id: "development", label: "Development", labelDe: "Entwicklung", icon: "Code2" },
+  { id: "productivity", label: "Productivity", labelDe: "Produktivität", icon: "LayoutGrid" },
+  { id: "design", label: "Design", labelDe: "Design", icon: "PenTool" },
+  { id: "entertainment", label: "Entertainment", labelDe: "Streaming", icon: "Headphones" },
+  { id: "cloud", label: "Cloud", labelDe: "Cloud", icon: "Cloud" },
+  { id: "learning", label: "Learning", labelDe: "Lernen", icon: "GraduationCap" },
+  { id: "shopping", label: "Shopping", labelDe: "Shopping", icon: "ShoppingBag" },
+  { id: "travel", label: "Travel", labelDe: "Reisen", icon: "Plane" },
+  { id: "food", label: "Food", labelDe: "Essen", icon: "UtensilsCrossed" },
+  { id: "finance", label: "Banking", labelDe: "Banking", icon: "Landmark" },
+  { id: "mobility", label: "Mobility", labelDe: "Mobilität", icon: "TrainFront" },
+  { id: "insurance", label: "Insurance", labelDe: "Versicherungen", icon: "ShieldCheck" },
+  { id: "fitness", label: "Fitness", labelDe: "Fitness", icon: "Dumbbell" },
+  { id: "culture", label: "Culture", labelDe: "Kultur", icon: "Theater" },
+  { id: "hardware", label: "Hardware", labelDe: "Hardware", icon: "Laptop" },
 ];
 
 export const benefits: Benefit[] = [

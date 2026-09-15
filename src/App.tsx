@@ -26,6 +26,8 @@ import {
   Check,
 } from "lucide-react";
 import { benefits, categories, type Category, type Benefit, type Pricing } from "@/data/benefits";
+import { useLocale, type Locale, type StringKey } from "@/i18n/locale";
+import { benefitTranslations, type BenefitTranslation } from "@/i18n/benefits.de";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Code2,
@@ -62,8 +64,17 @@ function faviconUrl(url: string) {
   }
 }
 
-function BenefitCard({ benefit }: { benefit: Benefit }) {
-  const favicon = faviconUrl(benefit.url);
+function localizedBenefit(benefit: Benefit, locale: Locale): Benefit & BenefitTranslation {
+  const tr = benefitTranslations[locale]?.[benefit.id];
+  return { ...benefit, ...tr };
+}
+
+function BenefitCardView({ benefit, locale }: { benefit: Benefit; locale: Locale }) {
+  const b = localizedBenefit(benefit, locale);
+  const { t } = useLocale();
+  const catLabel =
+    categories.find((c) => c.id === b.category)?.[locale === "de" ? "labelDe" : "label"] ?? b.category;
+  const favicon = faviconUrl(b.url);
   return (
     <a
       href={benefit.url}
@@ -71,14 +82,14 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
       rel="noopener noreferrer"
       className="group relative flex flex-col rounded-lg border border-border bg-card p-5 transition-all duration-200 hover:border-foreground/20 hover:bg-accent"
     >
-      {benefit.featured && (
+      {b.featured && (
         <span className="absolute -top-2 left-5 inline-flex items-center gap-1 rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold text-primary-foreground">
-          <Sparkles className="h-2.5 w-2.5" /> Top Pick
+          <Sparkles className="h-2.5 w-2.5" /> {t("topPick")}
         </span>
       )}
 
       <div className="mb-3 flex items-start justify-between">
-        <span className="text-xs font-medium text-muted-foreground capitalize">{benefit.category}</span>
+        <span className="text-xs font-medium text-muted-foreground capitalize">{catLabel}</span>
         <ArrowUpRight className="h-4 w-4 text-muted-foreground/40 transition-all group-hover:text-foreground" />
       </div>
 
@@ -91,19 +102,20 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
             className="h-8 w-8 rounded-md grayscale opacity-80 transition-all duration-200 group-hover:grayscale-0 group-hover:opacity-100"
           />
         )}
-        <h3 className="text-base font-semibold leading-tight text-card-foreground">{benefit.name}</h3>
+        <h3 className="text-base font-semibold leading-tight text-card-foreground">{b.name}</h3>
       </div>
-      <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground">{benefit.description}</p>
+      <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground">{b.description}</p>
 
       <div className="flex items-center justify-between border-t border-border pt-3">
-        <span className="text-sm font-semibold text-foreground">{benefit.offer}</span>
-        <span className="text-xs text-muted-foreground">{benefit.value}</span>
+        <span className="text-sm font-semibold text-foreground">{b.offer}</span>
+        <span className="text-xs text-muted-foreground">{b.value}</span>
       </div>
     </a>
   );
 }
 
 function App() {
+  const { locale, setLocale, t } = useLocale();
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<Category | "all">("all");
   const [activePricing, setActivePricing] = useState<Pricing | "all">("all");
@@ -119,14 +131,17 @@ function App() {
       const matchesCategory = activeCategory === "all" || b.category === activeCategory;
       const matchesPricing = activePricing === "all" || b.pricing === activePricing;
       const q = query.toLowerCase().trim();
-      const matchesQuery =
-        q === "" ||
-        b.name.toLowerCase().includes(q) ||
-        b.description.toLowerCase().includes(q) ||
-        b.offer.toLowerCase().includes(q);
-      return matchesCategory && matchesPricing && matchesQuery;
+      if (!matchesCategory || !matchesPricing) return false;
+      if (q === "") return true;
+      const lb = localizedBenefit(b, locale);
+      return (
+        lb.name.toLowerCase().includes(q) ||
+        lb.description.toLowerCase().includes(q) ||
+        lb.offer.toLowerCase().includes(q) ||
+        lb.tagline.toLowerCase().includes(q)
+      );
     });
-  }, [query, activeCategory, activePricing]);
+  }, [query, activeCategory, activePricing, locale]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -137,13 +152,30 @@ function App() {
             <img src="/logo.svg" alt="studenta.bremlo.uk logo" className="h-5 w-5" />
             <span className="text-sm font-semibold tracking-tight">studenta.bremlo.uk</span>
           </div>
-          <button
-            onClick={() => setDark((d) => !d)}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border transition-colors hover:bg-accent"
-            aria-label="Toggle theme"
-          >
-            {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
+          <div className="flex items-center gap-2">
+            <div className="flex overflow-hidden rounded-md border border-border" role="group" aria-label="Language">
+              {(["en", "de"] as Locale[]).map((l) => (
+                <button
+                  key={l}
+                  onClick={() => setLocale(l)}
+                  className={`px-2 py-1 text-xs font-semibold uppercase transition-colors ${
+                    locale === l
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={() => setDark((d) => !d)}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border transition-colors hover:bg-accent"
+              aria-label={t("toggleTheme")}
+            >
+              {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -151,15 +183,15 @@ function App() {
       <section className="mx-auto max-w-5xl px-6 pt-16 pb-10 text-center">
         <span className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
           <Sparkles className="h-3 w-3" />
-          {benefits.length} offers · Updated 2026
+          {benefits.length} {t("offers")} · {t("heroBadge")}
         </span>
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-          Student benefits,
+          {t("heroTitle1")}
           <br />
-          <span className="text-muted-foreground">all in one place.</span>
+          <span className="text-muted-foreground">{t("heroTitle2")}</span>
         </h1>
         <p className="mx-auto mt-4 max-w-lg text-base text-muted-foreground">
-          Free and discounted tools you can claim with your student email.
+          {t("heroSubtitle")}
         </p>
 
         {/* Search + pricing filter */}
@@ -169,12 +201,12 @@ function App() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search offers..."
+            placeholder={t("searchPlaceholder")}
             className="w-full rounded-md border border-input bg-secondary py-2.5 pl-10 pr-11 text-sm outline-none transition-all placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring/20"
           />
           <button
             onClick={() => setFilterOpen((o) => !o)}
-            aria-label="Filter by pricing"
+            aria-label={t("filterLabel")}
             aria-expanded={filterOpen}
             className={`absolute right-1.5 top-1/2 inline-flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-md transition-all ${
               activePricing !== "all"
@@ -210,7 +242,7 @@ function App() {
                     >
                       <span className="flex items-center gap-2">
                         {p === "all" ? <></> : <Filter className="h-3 w-3" />}
-                        {p === "all" ? "All pricing" : pricingLabels[p]}
+                        {p === "all" ? t("pricingAll") : t(`pricing${p[0].toUpperCase()}${p.slice(1)}` as StringKey)}
                       </span>
                       {isActive && <Check className="h-3.5 w-3.5" />}
                     </button>
@@ -233,7 +265,7 @@ function App() {
                 : "border border-border text-muted-foreground hover:text-foreground"
             }`}
           >
-            All
+            {t("categoryAll")}
           </button>
           {categories.map((cat) => {
             const Icon = iconMap[cat.icon];
@@ -249,7 +281,7 @@ function App() {
                 }`}
               >
                 <Icon className="h-3.5 w-3.5" />
-                {cat.label}
+                {locale === "de" ? cat.labelDe : cat.label}
               </button>
             );
           })}
@@ -261,24 +293,70 @@ function App() {
         {filtered.length > 0 ? (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((b) => (
-              <BenefitCard key={b.id} benefit={b} />
+              <BenefitCardView key={b.id} benefit={b} locale={locale} />
             ))}
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center py-20 text-center">
             <Search className="mb-3 h-6 w-6 text-muted-foreground/40" />
-            <p className="text-sm font-medium text-foreground">No offers found</p>
-            <p className="mt-1 text-sm text-muted-foreground">Try a different search or filter.</p>
+            <p className="text-sm font-medium text-foreground">{t("noResults")}</p>
+            <p className="mt-1 text-sm text-muted-foreground">{t("noResultsHint")}</p>
           </div>
         )}
       </section>
 
       {/* Footer */}
       <footer className="border-t border-border">
-        <div className="mx-auto max-w-5xl px-6 py-6 text-center">
+        <div className="mx-auto max-w-5xl space-y-3 px-6 py-8 text-center">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
+            <a
+              href="https://bremlo.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-medium text-foreground transition-colors hover:text-muted-foreground"
+            >
+              <img
+                src="https://www.google.com/s2/favicons?domain=bremlo.uk&sz=64"
+                alt=""
+                loading="lazy"
+                className="h-4 w-4 rounded grayscale opacity-80 transition-all hover:grayscale-0 hover:opacity-100"
+              />
+              bremlo.uk
+            </a>
+            <a
+              href="https://savault.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-medium text-foreground transition-colors hover:text-muted-foreground"
+            >
+              <img
+                src="https://www.google.com/s2/favicons?domain=savault.de&sz=64"
+                alt=""
+                loading="lazy"
+                className="h-4 w-4 rounded grayscale opacity-80 transition-all hover:grayscale-0 hover:opacity-100"
+              />
+              savault.de
+            </a>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs">
+            <a
+              href="/legal-notice"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {locale === "de" ? "Impressum" : "Legal Notice"}
+            </a>
+            <span aria-hidden="true" className="text-muted-foreground/40">·</span>
+            <a
+              href="/privacy-policy"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {locale === "de" ? "Datenschutz" : "Privacy"}
+            </a>
+          </div>
           <p className="text-xs text-muted-foreground">
-            Offers subject to change. Verify on the provider's website.
+            {t("footerCopyright").replace("{year}", String(new Date().getFullYear()))}
           </p>
+          <p className="text-xs text-muted-foreground/70">{t("footerNote")}</p>
         </div>
       </footer>
     </div>
