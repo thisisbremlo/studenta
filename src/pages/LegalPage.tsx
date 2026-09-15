@@ -29,7 +29,7 @@ export function LegalPage({ kind }: { kind: "imprint" | "privacy" }) {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <SiteHeader showThemeToggle={false} />
+      <SiteHeader />
 
       <main className="mx-auto max-w-5xl px-6 py-12">
         <h1 className="mb-8 text-3xl font-extrabold tracking-tight">{titles[kind]}</h1>

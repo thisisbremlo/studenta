@@ -16,7 +16,7 @@ export function SiteFooter() {
               src="https://www.google.com/s2/favicons?domain=bremlo.uk&sz=64"
               alt=""
               loading="lazy"
-              className="h-4 w-4 rounded grayscale opacity-80 transition-all hover:grayscale-0 hover:opacity-100"
+              className="h-4 w-4 rounded brightness-0 invert"
             />
             bremlo.uk
           </a>
