@@ -20,9 +20,22 @@ export function LegalPage({ kind }: { kind: "imprint" | "privacy" }) {
   };
   const seoTitle = seoTitles[`${kind}-${de ? "de" : "en"}`];
 
+  const metaDescriptions = {
+    imprint: de
+      ? "Impressum und Anbieterkennzeichnung von studenta.bremlo.uk — Benjamin Michael Bremer, Uelzen."
+      : "Legal notice and provider identification of studenta.bremlo.uk — Benjamin Michael Bremer, Germany.",
+    privacy: de
+      ? "Datenschutzerklärung von studenta.bremlo.uk: Hosting über Cloudflare, keine Cookies, keine Analyse-Tools."
+      : "Privacy policy of studenta.bremlo.uk: hosted on Cloudflare, no cookies, no analytics.",
+  };
+
   useEffect(() => {
     document.title = seoTitle;
-  }, [seoTitle]);
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", metaDescriptions[kind]);
+    document.querySelector('link[rel="canonical"]')?.setAttribute("href", `https://studenta.bremlo.uk/${kind === "imprint" ? "legal-notice" : "privacy-policy"}`);
+  }, [seoTitle, kind, de]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">

@@ -1,0 +1,17 @@
+{
+  "name": "studenta.bremlo.uk",
+  "short_name": "studenta",
+  "description": "Free and discounted student benefits, all in one place.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
