@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import {
   Search,
   Code2,
@@ -18,8 +18,6 @@ import {
   Laptop,
   ExternalLink,
   Sparkles,
-  Moon,
-  Sun,
   ArrowUpRight,
   Filter,
   ChevronDown,
@@ -28,6 +26,8 @@ import {
 import { benefits, categories, type Category, type Benefit, type Pricing } from "@/data/benefits";
 import { useLocale, type Locale, type StringKey } from "@/i18n/locale";
 import { benefitTranslations, type BenefitTranslation } from "@/i18n/benefits.de";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Code2,
@@ -115,16 +115,11 @@ function BenefitCardView({ benefit, locale }: { benefit: Benefit; locale: Locale
 }
 
 function App() {
-  const { locale, setLocale, t } = useLocale();
+  const { locale, t } = useLocale();
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<Category | "all">("all");
   const [activePricing, setActivePricing] = useState<Pricing | "all">("all");
-  const [dark, setDark] = useState(true);
   const [filterOpen, setFilterOpen] = useState(false);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", dark);
-  }, [dark]);
 
   const filtered = useMemo(() => {
     return benefits.filter((b) => {
@@ -145,39 +140,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3.5">
-          <div className="flex items-center gap-2">
-            <img src="/logo.svg" alt="studenta.bremlo.uk logo" className="h-5 w-5" />
-            <span className="text-sm font-semibold tracking-tight">studenta.bremlo.uk</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="flex overflow-hidden rounded-md border border-border" role="group" aria-label="Language">
-              {(["en", "de"] as Locale[]).map((l) => (
-                <button
-                  key={l}
-                  onClick={() => setLocale(l)}
-                  className={`px-2 py-1 text-xs font-semibold uppercase transition-colors ${
-                    locale === l
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {l}
-                </button>
-              ))}
-            </div>
-            <button
-              onClick={() => setDark((d) => !d)}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border transition-colors hover:bg-accent"
-              aria-label={t("toggleTheme")}
-            >
-              {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </button>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Hero */}
       <section className="mx-auto max-w-5xl px-6 pt-16 pb-10 text-center">
@@ -305,60 +268,7 @@ function App() {
         )}
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border">
-        <div className="mx-auto max-w-5xl space-y-3 px-6 py-8 text-center">
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
-            <a
-              href="https://bremlo.uk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-medium text-foreground transition-colors hover:text-muted-foreground"
-            >
-              <img
-                src="https://www.google.com/s2/favicons?domain=bremlo.uk&sz=64"
-                alt=""
-                loading="lazy"
-                className="h-4 w-4 rounded grayscale opacity-80 transition-all hover:grayscale-0 hover:opacity-100"
-              />
-              bremlo.uk
-            </a>
-            <a
-              href="https://savault.de"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-medium text-foreground transition-colors hover:text-muted-foreground"
-            >
-              <img
-                src="https://www.google.com/s2/favicons?domain=savault.de&sz=64"
-                alt=""
-                loading="lazy"
-                className="h-4 w-4 rounded grayscale opacity-80 transition-all hover:grayscale-0 hover:opacity-100"
-              />
-              savault.de
-            </a>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs">
-            <a
-              href="/legal-notice"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {locale === "de" ? "Impressum" : "Legal Notice"}
-            </a>
-            <span aria-hidden="true" className="text-muted-foreground/40">·</span>
-            <a
-              href="/privacy-policy"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {locale === "de" ? "Datenschutz" : "Privacy"}
-            </a>
-          </div>
-          <p className="text-xs text-muted-foreground">
-            {t("footerCopyright").replace("{year}", String(new Date().getFullYear()))}
-          </p>
-          <p className="text-xs text-muted-foreground/70">{t("footerNote")}</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
