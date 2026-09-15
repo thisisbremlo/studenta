@@ -220,9 +220,9 @@ function App() {
       {/* Filters */}
       <section
         aria-label="Categories"
-        className="no-scrollbar -mx-6 overflow-x-auto overscroll-x-contain px-6"
+        className="no-scrollbar overflow-x-auto overscroll-x-contain"
       >
-        <div className="mx-auto flex w-max max-w-full items-center gap-2 px-6">
+        <div className="mx-auto flex w-max items-center gap-2 px-6">
           <button
             onClick={() => setActiveCategory("all")}
             className={`shrink-0 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
