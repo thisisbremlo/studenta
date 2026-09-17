@@ -643,5 +643,404 @@ export const benefitTranslations: Record<Locale, Record<string, BenefitTranslati
       offer: "Akademischer Rabatt",
       value: "Je nach Tarif",
     },
+    gitkraken: {
+      tagline: "Git-GUI mit Merge-Conflict-Editor",
+      description:
+        "Visueller Git-Client mit intuitiver Oberfläche und mächtigem Merge-Conflict-Editor. Studierende erhalten 6 Monate gratis über das GitHub Student Pack, danach 80 % Rabatt.",
+      offer: "6 Monate gratis, dann 80 % Rabatt",
+      value: "48 $/Jahr gespart",
+    },
+    termius: {
+      tagline: "SSH-Client für Desktop und Mobilgeräte",
+      description:
+        "Moderner SSH-Client mit Synchronisierung zwischen Desktop und Mobilgeräten. Das Studentenprogramm schaltet die Pro-Features während des Studiums frei.",
+      offer: "Gratis bzw. Pro-Features für Studierende",
+      value: "10 $/Monat",
+    },
+    bootstrapstudio: {
+      tagline: "Responsive Websites mit Bootstrap",
+      description:
+        "Desktop-App zum Erstellen responsiver Websites mit dem Bootstrap-Framework — Drag-and-Drop-Komponenten und sauberer Code-Export. Gratis für Studierende über das GitHub Student Pack.",
+      offer: "Gratis-Lizenz",
+      value: "29 $ einmalig",
+    },
+    browserstack: {
+      tagline: "Tests auf echten Browsern und Geräten",
+      description:
+        "Cross-Browser-Testing auf über 3.000 echten Geräten und Browsern in der Cloud. Ein Jahr gratis für Studierende über das GitHub Student Pack.",
+      offer: "1 Jahr gratis",
+      value: "1.500 $/Jahr",
+    },
+    localstack: {
+      tagline: "Lokaler AWS-Emulator",
+      description:
+        "AWS-Services lokal für Entwicklung und Testing ausführen — ohne die echte Cloud anzufassen. Studierende erhalten eine Gratis-Lizenz über das GitHub Student Pack.",
+      offer: "Gratis-Lizenz",
+      value: "Je nach Tarif",
+    },
+    polypane: {
+      tagline: "Browser für responsive Webentwicklung",
+      description:
+        "Ein für Entwickler gebauter Browser, der deine Website in mehreren Viewports gleichzeitig rendert — mit Accessibility- und Debugging-Tools. Ein Jahr gratis für Studierende.",
+      offer: "1 Jahr gratis",
+      value: "20 $/Monat",
+    },
+    travisci: {
+      tagline: "Continuous Integration",
+      description:
+        "CI-Service, der deinen Code bei jedem Push automatisch baut und testet. Studierende erhalten gratis Private Builds über das GitHub Student Pack.",
+      offer: "Gratis Private Builds",
+      value: "69 $/Monat",
+    },
+    requestly: {
+      tagline: "HTTP-Requests abfangen und mocken",
+      description:
+        "Netzwerk-Requests im Browser debuggen, verändern und mocken. Studierende erhalten ein Jahr Professional gratis über das GitHub Student Pack.",
+      offer: "1 Jahr Professional gratis",
+      value: "270 $/Jahr",
+    },
+    doppler: {
+      tagline: "Secrets-Management",
+      description:
+        "Zentrale, sichere Verwaltung für Umgebungsvariablen und API-Secrets mit Synchronisation in deinen Stack. Der Team-Plan ist für Studierende gratis über das GitHub Student Pack.",
+      offer: "Team-Plan gratis",
+      value: "8 $/Nutzer/Monat",
+    },
+    configcat: {
+      tagline: "Feature-Flag-Service",
+      description:
+        "Features sicher ausrollen mit Feature Flags, A/B-Tests und Targeting-Regeln. Studierende erhalten 1.000 gratis Feature Flags über das GitHub Student Pack.",
+      offer: "1.000 Feature Flags gratis",
+      value: "99 $/Monat",
+    },
+    devcycle: {
+      tagline: "Feature-Flag-Plattform",
+      description:
+        "Open-Source-Plattform für Feature Management — hinter Flags ausliefern und jederzeit zurückrollen. Ein Jahr Starter-Plan gratis für Studierende.",
+      offer: "1 Jahr Starter gratis",
+      value: "150+ $/Jahr",
+    },
+    workingcopy: {
+      tagline: "Git-Client für iOS und iPadOS",
+      description:
+        "Vollwertiger Git-Client für iPhone und iPad mit Klonen, Bearbeiten, Committen und Pushen — sogar vom iPad aus. Das Pro-Upgrade ist für Studierende gratis.",
+      offer: "Pro gratis",
+      value: "24,99 $ einmalig",
+    },
+    tower: {
+      tagline: "Git-Client für macOS und Windows",
+      description:
+        "Mächtiger, polierter Git-Desktop-Client mit Drag-and-Drop-Aktionen, Conflict-Wizards und Partial Commits. Pro ist für Studierende gratis über das GitHub Student Pack.",
+      offer: "Pro gratis",
+      value: "99 $/Jahr",
+    },
+    sqlgate: {
+      tagline: "SQL-IDE für viele Datenbanken",
+      description:
+        "Leichtgewichtige Datenbank-IDE für Oracle, MySQL, PostgreSQL, MariaDB, SQL Server und mehr. Ein Jahr gratis für Studierende.",
+      offer: "1 Jahr gratis",
+      value: "119 $/Jahr",
+    },
+    popsql: {
+      tagline: "Kollaborativer SQL-Editor",
+      description:
+        "Moderner SQL-Editor mit geteilten Queries, Dashboards und Echtzeit-Kollaboration. Der Premium-Plan ist für Studierende gratis über das GitHub Student Pack.",
+      offer: "Premium gratis",
+      value: "40 $/Nutzer/Monat",
+    },
+    vaadin: {
+      tagline: "Java-Web-Framework",
+      description:
+        "Full-Stack-Java-Framework mit reichhaltiger Auswahl an Pro-UI-Komponenten und Tools. Der Pro-Zugang ist für Studierende gratis über das GitHub Student Pack.",
+      offer: "Pro-Zugang gratis",
+      value: "1.400 $/Jahr",
+    },
+    xojo: {
+      tagline: "Cross-Platform-Entwicklung",
+      description:
+        "Native Apps für Desktop, Web, iOS und Android mit einer Sprache bauen. Die Pro-Lizenz ist für Studierende gratis über das GitHub Student Pack.",
+      offer: "Pro-Lizenz gratis",
+      value: "299 $/Jahr",
+    },
+    blockchair: {
+      tagline: "Blockchain-Daten und APIs",
+      description:
+        "Blockchain-Explorer und API-Plattform mit über 40 Chains. Studierende erhalten 100.000 gratis API-Requests über das GitHub Student Pack.",
+      offer: "100k API-Requests gratis",
+      value: "99 $/Monat",
+    },
+    scrimba: {
+      tagline: "Interaktive Coding-Kurse",
+      description:
+        "JavaScript, React und Python mit interaktiven Screencasts lernen, die sich live bearbeiten lassen. Ein Monat Pro gratis für Studierende über das GitHub Student Pack.",
+      offer: "1 Monat Pro gratis",
+      value: "20 $",
+    },
+    educative: {
+      tagline: "Interaktive Programmier- und ML-Kurse",
+      description:
+        "Textbasierte interaktive Kurse zu Programmierung, Systemdesign und Machine Learning. Studierende erhalten 6 Monate gratis plus 30 % Rabatt über das GitHub Student Pack.",
+      offer: "6 Monate gratis + 30 % Rabatt",
+      value: "120 $",
+    },
+    symfonycasts: {
+      tagline: "Symfony- und PHP-Kurse",
+      description:
+        "Ausführliche Videotutorials und Kurse zu Symfony, PHP und JavaScript. Drei Monate gratis für Studierende über das GitHub Student Pack.",
+      offer: "3 Monate gratis",
+      value: "75 $",
+    },
+    gorails: {
+      tagline: "Ruby-, Rails- und JavaScript-Tutorials",
+      description:
+        "Videotutorials zu Ruby on Rails, Ruby und JavaScript für praxisnahe Webentwicklung. 12 Monate gratis für Studierende über das GitHub Student Pack.",
+      offer: "12 Monate gratis",
+      value: "228 $/Jahr",
+    },
+    bootdev: {
+      tagline: "Backend-, DevOps- und Datenkurse",
+      description:
+        "Projektbasierte Kurse zu Backend-Entwicklung, DevOps und Datenanalyse. Drei Monate gratis für Studierende über das GitHub Student Pack.",
+      offer: "3 Monate gratis",
+      value: "120 $",
+    },
+    codedex: {
+      tagline: "Python-, Web- und React-Kurse",
+      description:
+        "Gamifizierte, interaktive Coding-Kurse für Einsteiger:innen. Sechs Monate des Club-Plans sind für Studierende gratis über das GitHub Student Pack.",
+      offer: "6 Monate Club gratis",
+      value: "48 $",
+    },
+    khanmigo: {
+      tagline: "KI-Tutor für Lerninhalte",
+      description:
+        "Khan Academys KI-Tutor, der Schritt für Schritt durch Aufgaben führt statt nur Lösungen zu geben. Für Lehrkräfte gratis; Studierende zahlen eine kleine monatliche Gebühr.",
+      offer: "Gratis für Lehrkräfte / ca. 4 $/Monat für Studierende",
+      value: "4 $/Monat",
+    },
+    socratic: {
+      tagline: "Aufgaben per Foto erklären lassen",
+      description:
+        "Googles Lern-App erklärt Hausaufgaben Schritt für Schritt — einfach das Problem fotografieren. Komplett kostenlos.",
+      offer: "Kostenlos",
+      value: "0 $",
+    },
+    notebooklm: {
+      tagline: "KI mit Bezug zu eigenen Quellen",
+      description:
+        "Googles Recherche-Assistent analysiert deine eigenen Dokumente und antwortet mit Quellenangaben — ideal für Literaturrecherche und Prüfungsvorbereitung. Kostenlos.",
+      offer: "Kostenlos",
+      value: "0 $",
+    },
+    elicit: {
+      tagline: "Literatur- und Paper-Recherche mit KI",
+      description:
+        "KI-Recherche-Assistent, der wissenschaftliche Paper findet, zusammenfasst und Kernerkenntnisse extrahiert. Gratis-Tarif mit Limits für Studierende.",
+      offer: "Gratis mit Limits",
+      value: "0 $",
+    },
+    andisearch: {
+      tagline: "KI-Suche mit Quellen",
+      description:
+        "Werbefreie KI-Suchmaschine, die Fragen mit belegten Quellen beantwortet statt einer Linkliste. Kostenlos.",
+      offer: "Kostenlos",
+      value: "0 $",
+    },
+    chatgptplus: {
+      tagline: "Fortgeschrittener KI-Assistent",
+      description:
+        "OpenAIs Assistent mit den neuesten Modellen, Bildgenerierung und Dateianalyse. Zeitweise Studenten-Aktionen mit Gratis-Zugang — aktuelle Konditionen prüfen.",
+      offer: "Zeitweise Promo, ggf. gratis",
+      value: "20 $/Monat",
+    },
+    claudefree: {
+      tagline: "Erklärungen, Projekte und KI-Chat",
+      description:
+        "Anthropics KI-Assistent mit großzügiger Gratis-Nutzung — ideal für Erklärungen, Zusammenfassungen und die Arbeit mit eigenen Dokumenten und Projekten.",
+      offer: "Kostenlos",
+      value: "0 $",
+    },
+    geminiadvanced: {
+      tagline: "KI-Assistant, Dokumentanalyse und Speicher-Bundle",
+      description:
+        "Googles stärkste KI-Modelle plus 2 TB Speicher im One-AI-Premium-Bundle. 12 Monate gratis für Studierende, regional begrenzt — Verfügbarkeit prüfen.",
+      offer: "12 Monate gratis (regional begrenzt)",
+      value: "20 $/Monat",
+    },
+    "1password": {
+      tagline: "Passwort-Manager",
+      description:
+        "Einer der besten Passwort-Manager für Logins, Passkeys und Dokumente. Ein Jahr gratis für Studierende über das GitHub Student Pack.",
+      offer: "1 Jahr gratis",
+      value: "36 $/Jahr",
+    },
+    bitwarden: {
+      tagline: "Passwort-Manager mit Synchronisierung",
+      description:
+        "Open-Source-Passwort-Manager mit kostenloser Synchronisierung über alle Geräte — die solide Gratis-Alternative zur Verwaltung aller Studenten-Accounts.",
+      offer: "Kostenlos",
+      value: "10 $/Jahr",
+    },
+    dashlane: {
+      tagline: "Passwort-Manager",
+      description:
+        "Passwort-Manager mit VPN und Dark-Web-Überwachung. Studierende erhalten 6 Monate Premium gratis über das GitHub Student Pack.",
+      offer: "6 Monate Premium gratis",
+      value: "40 $",
+    },
+    astra: {
+      tagline: "Website-Firewall und Malware-Scanner",
+      description:
+        "Security-Suite für Websites: Firewall, Malware-Scanner und Pentest. Sechs Monate gratis für Studierende über das GitHub Student Pack.",
+      offer: "6 Monate gratis",
+      value: "33 $/Monat",
+    },
+    newrelic: {
+      tagline: "Observability und Performance-Monitoring",
+      description:
+        "Full-Stack-Observability: Server, Apps und Infrastruktur auf einer Plattform überwachen. Der Gratis-Student-Account enthält ein großzügiges monatliches Datenkontingent.",
+      offer: "Gratis-Account",
+      value: "Im Wert von 300 $/Monat",
+    },
+    datadog: {
+      tagline: "Monitoring für Server und Anwendungen",
+      description:
+        "Cloud-Scale-Monitoring und Observability für Infrastruktur, Logs und Traces. Studierende erhalten den Pro-Account 2 Jahre gratis über das GitHub Student Pack.",
+      offer: "Pro gratis für 2 Jahre",
+      value: "300 $/Monat",
+    },
+    honeybadger: {
+      tagline: "Exception- und Uptime-Monitoring",
+      description:
+        "Error-Tracking und Uptime-Monitoring mit Fokus auf Developer Experience. Der Small-Plan ist für Studierende ein Jahr gratis.",
+      offer: "Small-Plan gratis (1 Jahr)",
+      value: "299 $/Jahr",
+    },
+    blackfire: {
+      tagline: "Code-Performance-Analyse",
+      description:
+        "Profiling und Performance-Monitoring für PHP-, Python- und Go-Anwendungen. Der Developer-Plan ist für Studierende gratis über das GitHub Student Pack.",
+      offer: "Developer-Plan gratis",
+      value: "109 $/Jahr",
+    },
+    sentry: {
+      tagline: "Error-Tracking",
+      description:
+        "Exceptions und Performance-Probleme im gesamten Stack in Echtzeit nachverfolgen. Studierende erhalten den Team-Plan ein Jahr gratis über das GitHub Student Pack.",
+      offer: "Team-Features gratis (1 Jahr)",
+      value: "26 $/Monat",
+    },
+    deepnote: {
+      tagline: "Kollaborative Data-Science-Notebooks",
+      description:
+        "Echtzeit-kollaborative Notebooks für Data Science, kompatibel mit Jupyter. Der Team-Plan ist für Studierende gratis über das GitHub Student Pack.",
+      offer: "Team-Plan gratis",
+      value: "40 $/Nutzer/Monat",
+    },
+    camber: {
+      tagline: "KI-gestützte Data-Science-Ressourcen",
+      description:
+        "Cloud-Compute-Ressourcen für Data-Science-Workloads mit KI-Unterstützung. Der Student-Plan ist gratis über das GitHub Student Pack.",
+      offer: "Student-Plan gratis",
+      value: "40 $/Monat",
+    },
+    appwrite: {
+      tagline: "Backend-Infrastruktur für Apps",
+      description:
+        "Open-Source-Backend-as-a-Service: Auth, Datenbanken, Storage und Functions. Der Education-Plan ist für Studierende gratis über das GitHub Student Pack.",
+      offer: "Education-Plan gratis",
+      value: "40 $/Monat",
+    },
+    gettech: {
+      tagline: "Gratis .TECH-Domain für ein Jahr",
+      description:
+        "Eine gratis .TECH-Domain für ein Jahr registrieren — perfekt für Tech-Projekte und Portfolios. Über das GitHub Student Pack.",
+      offer: "1 Jahr .TECH-Domain gratis",
+      value: "50 $/Jahr",
+    },
+    githubpages: {
+      tagline: "Statisches Hosting aus GitHub-Repos",
+      description:
+      "Statische Websites direkt aus einem GitHub-Repository hosten — kostenlos und mit Custom-Domain-Support. Der einfachste Weg, ein Portfolio online zu stellen.",
+      offer: "Kostenlos",
+      value: "0 $",
+    },
+    pageclip: {
+      tagline: "Backend für Formulare statischer Websites",
+      description:
+        "Formular-Eingaben von statischen Websites sammeln, ganz ohne eigenen Server-Code. Der Basic-Plan ist für Studierende gratis über das GitHub Student Pack.",
+      offer: "Basic-Plan gratis",
+      value: "8 $/Monat",
+    },
+    pomodone: {
+      tagline: "Pomodoro-Timer und Task-Integration",
+      description:
+        "Pomodoro-Timer, der sich mit deinen bestehenden Task-Tools (Todoist, Trello u. a.) integriert. Zwei Jahre Lite-Plan gratis für Studierende.",
+      offer: "2 Jahre Lite gratis",
+      value: "58 $",
+    },
+    hazeover: {
+      tagline: "Fokus-App für macOS",
+      description:
+        "Dimmt Hintergrundfenster, damit du dich auf das eine Fenster konzentrieren kannst — ideal für tiefe Lernphasen. Gratis-Lizenz für Studierende.",
+      offer: "Gratis-Lizenz",
+      value: "4,99 $ einmalig",
+    },
+    todiagram: {
+      tagline: "JSON, YAML und CSV in Diagramme umwandeln",
+      description:
+        "JSON, YAML, CSV und mehr als interaktive Diagramme visualisieren und bearbeiten. Der Pro-Plan ist für Studierende gratis über das GitHub Student Pack.",
+      offer: "Pro gratis",
+      value: "10 $/Monat",
+    },
+    poeditor: {
+      tagline: "Übersetzungs- und Lokalisierungsmanagement",
+      description:
+        "Übersetzungen und Lokalisierungsdateien für Apps und Websites im Team verwalten. Ein Jahr Plus-Plan gratis für Studierende.",
+      offer: "1 Jahr Plus gratis",
+      value: "174 $/Jahr",
+    },
+    themeisle: {
+      tagline: "WordPress-Themes",
+      description:
+        "Premium-WordPress-Themes und -Plugins (Neve, Hestia u. a.). Ein Jahr gratis für Studierende über das GitHub Student Pack.",
+      offer: "1 Jahr gratis",
+      value: "99 $/Jahr",
+    },
+    icons8: {
+      tagline: "Icons, Fotos und Illustrationen",
+      description:
+        "Riesige Bibliothek aus Icons, Fotos und Illustrationen in konsistenten Stilen. Drei Monate gratis für Studierende über das GitHub Student Pack.",
+      offer: "3 Monate gratis",
+      value: "30 $",
+    },
+    iconscout: {
+      tagline: "Icons, 3D-Assets und Animationen",
+      description:
+        "Millionen Icons, Illustrationen, 3D-Assets und Lottie-Animationen. 60 Premium-Icons pro Monat ein Jahr lang gratis für Studierende.",
+      offer: "60 Premium-Icons/Monat (1 Jahr)",
+      value: "120 $/Jahr",
+    },
+    visme: {
+      tagline: "Präsentationen und Visual Documents",
+      description:
+        "Design-Tool für Präsentationen, Infografiken und Reports mit Vorlagen und Charts. Drei Monate gratis für Studierende über das GitHub Student Pack.",
+      offer: "3 Monate gratis",
+      value: "59 $",
+    },
+    simpleanalytics: {
+      tagline: "Datenschutzfreundliche Web-Analytics",
+      description:
+        "DSGVO-freundliche Analytics ohne Cookies und ohne Cross-Site-Tracking. Ein Jahr Starter-Plan gratis für Studierende.",
+      offer: "1 Jahr Starter gratis",
+      value: "228 $/Jahr",
+    },
+    appfigures: {
+      tagline: "App-Store-Analytics",
+      description:
+        "Downloads, Umsätze und Rankings für Apps über alle Stores in einem Dashboard verfolgen. Ein Jahr gratis für Studierende über das GitHub Student Pack.",
+      offer: "1 Jahr gratis",
+      value: "120 $/Jahr",
+    },
   },
 };

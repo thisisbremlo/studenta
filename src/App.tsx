@@ -16,6 +16,7 @@ import {
   Dumbbell,
   Theater,
   Laptop,
+  Lock,
   ExternalLink,
   Sparkles,
   ArrowUpRight,
@@ -31,6 +32,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Code2,
+  Sparkles,
+  Lock,
   LayoutGrid,
   PenTool,
   Headphones,
