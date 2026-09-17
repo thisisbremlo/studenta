@@ -173,9 +173,19 @@ export function MacAppsPage() {
   );
 }
 
+function faviconUrl(url: string) {
+  try {
+    const host = new URL(url).hostname;
+    return `https://www.google.com/s2/favicons?domain=${host}&sz=64`;
+  } catch {
+    return null;
+  }
+}
+
 function MacAppCard({ app, de }: { app: MacApp; de: boolean }) {
   const cat = macAppCategories.find((c) => c.id === app.category);
   const Icon = cat ? iconMap[cat.icon] : Zap;
+  const favicon = faviconUrl(app.url);
 
   return (
     <a
@@ -191,9 +201,18 @@ function MacAppCard({ app, de }: { app: MacApp; de: boolean }) {
         </span>
       )}
       <div className="mb-3 flex items-start justify-between gap-2">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted text-muted-foreground transition-colors group-hover:text-foreground">
-          <Icon className="h-5 w-5" />
-        </div>
+        {favicon ? (
+          <img
+            src={favicon}
+            alt=""
+            loading="lazy"
+            className="h-10 w-10 rounded-xl bg-muted object-contain p-1.5 grayscale opacity-80 transition-all duration-200 group-hover:grayscale-0 group-hover:opacity-100"
+          />
+        ) : (
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted text-muted-foreground transition-colors group-hover:text-foreground">
+            <Icon className="h-5 w-5" />
+          </div>
+        )}
         <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
           {de ? app.priceDe : app.price}
         </span>

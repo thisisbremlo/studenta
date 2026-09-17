@@ -60,6 +60,15 @@ const pricingLabels: Record<Pricing, string> = {
 
 const pricingFilters: (Pricing | "all")[] = ["all", "free", "freemium", "paid"];
 
+/** Official Apple logo mark (from Apple's font — the Unicode  glyph, rendered as a path). */
+function AppleLogo({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 814 1000" className={className} aria-hidden="true">
+      <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105.6-57-155.5-127C46.7 790.7 0 663 0 541.8c0-194.4 126.4-297.5 250.8-297.5 66.1 0 121.2 43.4 162.7 43.4 39.5 0 101.1-46 176.3-46 28.5 0 130.9 2.6 198.3 99.2zm-234-181.5c31.1-36.9 53.1-88.1 53.1-139.3 0-7.1-.6-14.3-1.9-20.1-50.6 1.9-110.8 33.7-147.1 75.8-28.5 32.4-55.1 83.6-55.1 135.5 0 7.8 1.3 15.6 1.9 18.1 3.2.6 8.4 1.3 13.6 1.3 45.4 0 102.5-30.4 135.5-71.3z" />
+    </svg>
+  );
+}
+
 function faviconUrl(url: string) {
   try {
     const host = new URL(url).hostname;
@@ -150,6 +159,16 @@ function App() {
 
       {/* Hero */}
       <section className="mx-auto max-w-5xl px-6 pt-16 pb-10 text-center">
+        <div className="mb-4 flex items-center justify-center gap-2">
+          <a
+            href="/mac-apps"
+            className="group inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-ring/50 hover:text-foreground"
+          >
+            <AppleLogo className="h-3 w-3 fill-current" />
+            {t("macAppsTitle")}
+            <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+          </a>
+        </div>
         <span className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
           <Sparkles className="h-3 w-3" />
           {benefits.length} {t("offers")} · {t("heroBadge")}
@@ -330,7 +349,7 @@ function App() {
           className="group flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-ring/40 hover:shadow-md sm:flex-row sm:items-center sm:gap-6"
         >
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-muted text-muted-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-            <Apple className="h-6 w-6" />
+            <AppleLogo className="h-6 w-6 fill-current" />
           </div>
           <div className="min-w-0 flex-1">
             <h2 className="font-semibold text-foreground transition-colors group-hover:text-primary">
