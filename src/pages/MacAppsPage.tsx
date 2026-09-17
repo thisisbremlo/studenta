@@ -205,7 +205,7 @@ function MacAppCard({ app, de }: { app: MacApp; de: boolean }) {
       href={app.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex flex-col rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-ring/40 hover:shadow-md"
+      className="group relative flex h-full flex-col rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-ring/40 hover:shadow-md"
     >
       {app.featured && (
         <span className="absolute -top-2.5 right-4 inline-flex items-center gap-1 rounded-full bg-primary px-2.5 py-0.5 text-[11px] font-semibold text-primary-foreground shadow">

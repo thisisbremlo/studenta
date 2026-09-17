@@ -96,7 +96,7 @@ function BenefitCardView({ benefit, locale }: { benefit: Benefit; locale: Locale
       href={benefit.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex flex-col rounded-lg border border-border bg-card p-5 transition-all duration-200 hover:border-foreground/20 hover:bg-accent"
+      className="group relative flex h-full flex-col rounded-lg border border-border bg-card p-5 transition-all duration-200 hover:border-foreground/20 hover:bg-accent"
     >
       {b.featured && (
         <span className="absolute -top-2 left-5 inline-flex items-center gap-1 rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold text-primary-foreground">
