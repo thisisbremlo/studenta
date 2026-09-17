@@ -2,6 +2,8 @@ import { useState, useMemo } from "react";
 import {
   Search,
   Code2,
+  Apple,
+  ArrowRight,
   LayoutGrid,
   PenTool,
   Headphones,
@@ -319,6 +321,28 @@ function App() {
             <p className="mt-1 text-sm text-muted-foreground">{t("noResultsHint")}</p>
           </div>
         )}
+      </section>
+
+      {/* Mac apps hint section */}
+      <section className="mx-auto max-w-5xl px-6 pb-12">
+        <a
+          href="/mac-apps"
+          className="group flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-ring/40 hover:shadow-md sm:flex-row sm:items-center sm:gap-6"
+        >
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-muted text-muted-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+            <Apple className="h-6 w-6" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <h2 className="font-semibold text-foreground transition-colors group-hover:text-primary">
+              {t("macAppsTitle")}
+            </h2>
+            <p className="mt-1 text-sm text-muted-foreground">{t("macAppsSubtitle")}</p>
+          </div>
+          <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
+            {t("macAppsCta")}
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </span>
+        </a>
       </section>
 
       <SiteFooter />
