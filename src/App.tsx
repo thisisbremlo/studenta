@@ -4,6 +4,7 @@ import {
   Code2,
   Apple,
   ArrowRight,
+  ArrowDown,
   LayoutGrid,
   PenTool,
   Headphones,
@@ -159,7 +160,7 @@ function App() {
 
       {/* Hero */}
       <section className="mx-auto max-w-5xl px-6 pt-16 pb-10 text-center">
-        <div className="mb-5 flex flex-wrap items-center justify-center gap-2">
+        <div className="mb-5 flex items-center justify-center">
           <a
             href="/mac-apps"
             className="group inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-ring/50 hover:text-foreground"
@@ -168,10 +169,6 @@ function App() {
             {t("macAppsTitle")}
             <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
           </a>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
-            <Sparkles className="h-3 w-3" />
-            {benefits.length} {t("offers")} · {t("heroBadge")}
-          </span>
         </div>
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
           {t("heroTitle1")}
@@ -323,10 +320,34 @@ function App() {
           )}
           </div>
         </div>
+
+        {/* Stats bar */}
+        <div className="mx-auto mt-8 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-lg border border-border bg-border text-left sm:grid-cols-5">
+          {[
+            { label: t("statOffers"), value: String(benefits.length) },
+            { label: t("statCategories"), value: String(categories.length) },
+            { label: t("statFree"), value: String(benefits.filter((b) => b.pricing === "free").length) },
+            { label: t("statTopPicks"), value: String(benefits.filter((b) => b.featured).length) },
+          ].map((stat) => (
+            <div key={stat.label} className="bg-card px-4 py-3">
+              <div className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+                {stat.label}
+              </div>
+              <div className="mt-0.5 text-sm font-bold text-foreground">{stat.value}</div>
+            </div>
+          ))}
+          <a
+            href="#offers"
+            aria-label={t("statBrowse")}
+            className="flex items-center justify-center bg-card text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+          >
+            <ArrowDown className="h-4 w-4" />
+          </a>
+        </div>
       </section>
 
       {/* Grid */}
-      <section className="mx-auto max-w-5xl px-6 py-8">
+      <section id="offers" className="mx-auto max-w-5xl scroll-mt-6 px-6 py-8">
         {filtered.length > 0 ? (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((b) => (
