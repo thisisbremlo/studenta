@@ -32,6 +32,7 @@ import { useLocale, type Locale, type StringKey } from "@/i18n/locale";
 import { benefitTranslations, type BenefitTranslation } from "@/i18n/benefits.de";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Reveal } from "@/components/Reveal";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Code2,
@@ -160,7 +161,7 @@ function App() {
 
       {/* Hero */}
       <section className="mx-auto max-w-5xl px-6 pt-16 pb-10 text-center">
-        <div className="mb-5 flex items-center justify-center">
+        <Reveal delay={0} variant="down" className="mb-5 flex items-center justify-center">
           <a
             href="/mac-apps"
             className="group inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-ring/50 hover:text-foreground"
@@ -169,18 +170,22 @@ function App() {
             {t("macAppsTitle")}
             <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
           </a>
-        </div>
+        </Reveal>
+        <Reveal delay={80}>
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
           {t("heroTitle1")}
           <br />
           <span className="text-muted-foreground">{t("heroTitle2")}</span>
         </h1>
+        </Reveal>
+        <Reveal delay={160}>
         <p className="mx-auto mt-4 max-w-lg text-base text-muted-foreground">
           {t("heroSubtitle")}
         </p>
+        </Reveal>
 
         {/* Search + category + pricing filter */}
-        <div className="relative mx-auto mt-6 flex max-w-md items-center gap-2">
+        <Reveal delay={240} className="relative mx-auto mt-6 flex max-w-md items-center gap-2">
           {/* Category dropdown */}
           <div className="relative">
             <button
@@ -319,10 +324,10 @@ function App() {
             </>
           )}
           </div>
-        </div>
+        </Reveal>
 
         {/* Stats bar */}
-        <div className="mx-auto mt-8 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-lg border border-border bg-border text-left sm:grid-cols-5">
+        <Reveal delay={320} className="mx-auto mt-8 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-lg border border-border bg-border text-left sm:grid-cols-5">
           {[
             { label: t("statOffers"), value: String(benefits.length) },
             { label: t("statCategories"), value: String(categories.length) },
@@ -341,17 +346,19 @@ function App() {
             aria-label={t("statBrowse")}
             className="flex items-center justify-center bg-card text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
           >
-            <ArrowDown className="h-4 w-4" />
+            <ArrowDown className="h-4 w-4 animate-bounce" />
           </a>
-        </div>
+        </Reveal>
       </section>
 
       {/* Grid */}
       <section id="offers" className="mx-auto max-w-5xl scroll-mt-6 px-6 py-8">
         {filtered.length > 0 ? (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((b) => (
-              <BenefitCardView key={b.id} benefit={b} locale={locale} />
+            {filtered.map((b, i) => (
+              <Reveal key={b.id} delay={Math.min(i, 8) * 60} variant="up">
+                <BenefitCardView benefit={b} locale={locale} />
+              </Reveal>
             ))}
           </div>
         ) : (
@@ -365,6 +372,7 @@ function App() {
 
       {/* Mac apps hint section */}
       <section className="mx-auto max-w-5xl px-6 pb-12">
+        <Reveal variant="scale">
         <a
           href="/mac-apps"
           className="group flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-ring/40 hover:shadow-md sm:flex-row sm:items-center sm:gap-6"
@@ -383,6 +391,7 @@ function App() {
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </span>
         </a>
+        </Reveal>
       </section>
 
       <SiteFooter />

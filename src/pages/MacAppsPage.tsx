@@ -20,6 +20,7 @@ import {
 import { useLocale } from "@/i18n/locale";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Reveal } from "@/components/Reveal";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Zap,
@@ -89,27 +90,35 @@ export function MacAppsPage() {
 
       <main className="mx-auto max-w-5xl px-6 py-12">
         {/* Back + hero */}
+        <Reveal variant="right" className="mb-8 inline-block">
         <a
           href="/"
-          className="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" />
           studenta.bremlo.uk
         </a>
+        </Reveal>
 
         <div className="mb-10 flex flex-col items-start gap-4">
+          <Reveal delay={60} variant="down">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/50 px-3 py-1 text-xs font-medium text-muted-foreground">
             <Apple className="h-3.5 w-3.5" />
             {t("macAppsBadge")}
           </span>
+          </Reveal>
+          <Reveal delay={120}>
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
             {t("macAppsPageTitle")}
           </h1>
+          </Reveal>
+          <Reveal delay={180}>
           <p className="max-w-2xl text-muted-foreground">{t("macAppsPageSubtitle")}</p>
+          </Reveal>
         </div>
 
         {/* Search */}
-        <div className="relative mb-8 max-w-md">
+        <Reveal delay={240} className="relative mb-8 max-w-md">
           <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <input
             type="search"
@@ -118,10 +127,10 @@ export function MacAppsPage() {
             placeholder={de ? "Apps suchen..." : "Search apps..."}
             className="w-full rounded-full border border-input bg-background py-2.5 pl-10 pr-4 text-sm shadow-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring/20"
           />
-        </div>
+        </Reveal>
 
         {/* Category pills */}
-        <div className="no-scrollbar mb-8 flex gap-2 overflow-x-auto pb-1">
+        <Reveal delay={300} className="no-scrollbar mb-8 flex gap-2 overflow-x-auto pb-1">
           <button
             onClick={() => setCategory(null)}
             className={`shrink-0 rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors ${
@@ -149,7 +158,7 @@ export function MacAppsPage() {
               </button>
             );
           })}
-        </div>
+        </Reveal>
 
         {/* App grid */}
         {filtered.length === 0 ? (
@@ -159,13 +168,17 @@ export function MacAppsPage() {
           </div>
         ) : (
           <div className="grid gap-4 sm:grid-cols-2">
-            {sorted.map((app) => (
-              <MacAppCard key={app.id} app={app} de={de} />
+            {sorted.map((app, i) => (
+              <Reveal key={app.id} delay={Math.min(i, 6) * 60} variant="up">
+                <MacAppCard app={app} de={de} />
+              </Reveal>
             ))}
           </div>
         )}
 
+        <Reveal delay={200}>
         <p className="mt-10 text-center text-xs text-muted-foreground">{t("macAppsNote")}</p>
+        </Reveal>
       </main>
 
       <SiteFooter />
