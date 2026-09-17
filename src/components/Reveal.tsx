@@ -14,11 +14,11 @@ interface RevealProps {
 }
 
 const hiddenTransforms: Record<RevealVariant, string> = {
-  up: "translateY(24px)",
-  down: "translateY(-24px)",
-  left: "translateX(-24px)",
-  right: "translateX(24px)",
-  scale: "scale(0.96)",
+  up: "translateY(16px)",
+  down: "translateY(-16px)",
+  left: "translateX(-16px)",
+  right: "translateX(16px)",
+  scale: "scale(0.97)",
   fade: "none",
 };
 
@@ -59,7 +59,9 @@ export function Reveal({
           }
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      // Trigger 150px BEFORE the element enters the viewport and at the
+      // first pixel of intersection, so content never appears late.
+      { threshold: 0, rootMargin: "0px 0px 150px 0px" }
     );
 
     observer.observe(el);
@@ -69,7 +71,7 @@ export function Reveal({
   const style: CSSProperties = {
     opacity: visible ? 1 : 0,
     transform: visible ? "none" : hiddenTransforms[variant],
-    transition: `opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms`,
+    transition: `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
     willChange: visible ? undefined : "opacity, transform",
   };
 

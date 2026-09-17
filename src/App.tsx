@@ -355,11 +355,17 @@ function App() {
       <section id="offers" className="mx-auto max-w-5xl scroll-mt-6 px-6 py-8">
         {filtered.length > 0 ? (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((b, i) => (
-              <Reveal key={b.id} delay={Math.min(i, 8) * 60} variant="up">
-                <BenefitCardView benefit={b} locale={locale} />
-              </Reveal>
-            ))}
+            {filtered.map((b, i) => {
+              // Stagger by grid column (0-2) so each visible row reveals
+              // left-to-right together instead of sequentially by index.
+              const cols = 3;
+              const col = i % cols;
+              return (
+                <Reveal key={b.id} delay={col * 90} variant="up">
+                  <BenefitCardView benefit={b} locale={locale} />
+                </Reveal>
+              );
+            })}
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center py-20 text-center">
