@@ -159,7 +159,7 @@ function App() {
 
       {/* Hero */}
       <section className="mx-auto max-w-5xl px-6 pt-16 pb-10 text-center">
-        <div className="mb-4 flex items-center justify-center gap-2">
+        <div className="mb-5 flex flex-wrap items-center justify-center gap-2">
           <a
             href="/mac-apps"
             className="group inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-ring/50 hover:text-foreground"
@@ -168,11 +168,11 @@ function App() {
             {t("macAppsTitle")}
             <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
           </a>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
+            <Sparkles className="h-3 w-3" />
+            {benefits.length} {t("offers")} · {t("heroBadge")}
+          </span>
         </div>
-        <span className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
-          <Sparkles className="h-3 w-3" />
-          {benefits.length} {t("offers")} · {t("heroBadge")}
-        </span>
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
           {t("heroTitle1")}
           <br />
