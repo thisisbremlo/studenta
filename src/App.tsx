@@ -24,6 +24,7 @@ import {
   Sparkles,
   ArrowUpRight,
   Filter,
+  Tag,
   ChevronDown,
   Check,
 } from "lucide-react";
@@ -116,9 +117,21 @@ function BenefitCardView({ benefit, locale }: { benefit: Benefit; locale: Locale
       </div>
       <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground">{b.description}</p>
 
-      <div className="flex items-start justify-between gap-3 border-t border-border pt-3">
-        <span className="text-[13px] font-semibold leading-snug text-foreground">{b.offer}</span>
-        <span className="shrink-0 whitespace-nowrap pt-0.5 text-right text-[11px] leading-tight text-muted-foreground">{b.value}</span>
+      {/* Offer footer */}
+      <div className="mt-auto">
+        <div className="mb-2.5 h-px bg-gradient-to-r from-border to-transparent" />
+        <div className="flex items-center justify-between gap-2">
+          <span className="inline-flex min-w-0 items-center gap-1.5 rounded-md bg-muted/70 px-2.5 py-1.5">
+            <Tag className="h-3 w-3 shrink-0 text-emerald-600 dark:text-emerald-400" />
+            <span className="truncate text-xs font-semibold text-foreground">{b.offer}</span>
+          </span>
+          <span
+            className="shrink-0 whitespace-nowrap text-right text-[11px] leading-tight text-muted-foreground/70"
+            title={b.value}
+          >
+            {b.value}
+          </span>
+        </div>
       </div>
     </a>
   );
