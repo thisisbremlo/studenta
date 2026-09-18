@@ -122,9 +122,9 @@ function BenefitCardView({ benefit, locale }: { benefit: Benefit; locale: Locale
       </div>
       <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground">{b.description}</p>
 
-      <div className="flex items-center justify-between border-t border-border pt-3">
-        <span className="text-sm font-semibold text-foreground">{b.offer}</span>
-        <span className="text-xs text-muted-foreground">{b.value}</span>
+      <div className="flex items-end justify-between gap-3 border-t border-border pt-3">
+        <span className="text-sm font-semibold leading-snug text-foreground">{b.offer}</span>
+        <span className="shrink-0 whitespace-nowrap text-right text-xs leading-snug text-muted-foreground">{b.value}</span>
       </div>
     </a>
   );
