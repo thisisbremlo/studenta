@@ -123,7 +123,7 @@ function BenefitCardView({ benefit, locale }: { benefit: Benefit; locale: Locale
         <div className="flex items-center justify-between gap-2">
           <span className="inline-flex min-w-0 items-center gap-1.5 rounded-md bg-muted/70 px-2.5 py-1.5" title={b.offer}>
             <Tag className="h-3 w-3 shrink-0 text-emerald-600 dark:text-emerald-400" />
-            <span className="truncate text-xs font-semibold text-foreground group-hover:whitespace-normal group-hover:overflow-visible">{b.offer}</span>
+            <span className="truncate text-xs font-semibold text-foreground">{b.offer}</span>
           </span>
           <span
             className="shrink-0 whitespace-nowrap text-right text-[11px] leading-tight text-muted-foreground/70"
