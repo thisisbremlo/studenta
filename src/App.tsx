@@ -361,7 +361,7 @@ function App() {
       {/* Grid */}
       <section id="offers" className="mx-auto max-w-5xl scroll-mt-6 px-6 py-8">
         {filtered.length > 0 ? (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((b, i) => {
               // Stagger by grid column (0-2) so each visible row reveals
               // left-to-right together instead of sequentially by index.

@@ -167,7 +167,7 @@ export function MacAppsPage() {
             <p className="mt-1 text-sm">{t("macAppsNoResultsHint")}</p>
           </div>
         ) : (
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {sorted.map((app, i) => (
               <Reveal key={app.id} delay={(i % 2) * 90} variant="up">
                 <MacAppCard app={app} de={de} />
