@@ -34,7 +34,7 @@ export function SiteFooter() {
                 className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
               >
                 <img
-                  src="https://www.google.com/s2/favicons?domain=bremlo.uk&sz=64"
+                  src="https://icons.duckduckgo.com/ip3/bremlo.uk.ico"
                   alt=""
                   loading="lazy"
                   className="h-3.5 w-3.5 rounded brightness-0 invert"
@@ -48,7 +48,7 @@ export function SiteFooter() {
                 className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
               >
                 <img
-                  src="https://www.google.com/s2/favicons?domain=savault.de&sz=64"
+                  src="https://icons.duckduckgo.com/ip3/savault.de.ico"
                   alt=""
                   loading="lazy"
                   className="h-3.5 w-3.5 rounded grayscale opacity-80 transition-all hover:grayscale-0 hover:opacity-100"

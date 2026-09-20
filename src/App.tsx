@@ -69,7 +69,9 @@ const pricingFilters: (Pricing | "all")[] = ["all", "free", "freemium", "paid"];
 function faviconUrl(url: string) {
   try {
     const host = new URL(url).hostname;
-    return `https://www.google.com/s2/favicons?domain=${host}&sz=64`;
+    // Google's favicon service intermittently serves broken placeholder
+    // images; DuckDuckGo's icon service is more reliable.
+    return `https://icons.duckduckgo.com/ip3/${host}.ico`;
   } catch {
     return null;
   }
@@ -351,7 +353,7 @@ function App() {
           <a
             href="#offers"
             aria-label={t("statBrowse")}
-            className="flex items-center justify-center bg-card text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+            className="col-span-2 flex items-center justify-center bg-card text-muted-foreground transition-colors hover:bg-accent hover:text-foreground sm:col-span-1"
           >
             <ArrowDown className="h-4 w-4 animate-bounce" />
           </a>

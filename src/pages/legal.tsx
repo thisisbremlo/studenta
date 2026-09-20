@@ -146,11 +146,11 @@ export function PrivacyContent() {
           : "Where data is transferred to the United States, the transfer is based on the EU Standard Contractual Clauses (Art. 46 GDPR) and additional safeguards implemented by Cloudflare, including a Transfer Impact Assessment."}
       </P>
 
-      <H>{de ? "Externe Favicons (Google Favicon Service)" : "External Favicons (Google Favicon Service)"}</H>
+      <H>{de ? "Externe Favicons (DuckDuckGo Icon Service)" : "External Favicons (DuckDuckGo Icon Service)"}</H>
       <P>
         {de
-          ? "Zur Darstellung der Anbieter-Logos in den Angebotskarten lädt diese Website Favicons vom Google Favicon Service (google.com/s2/favicons). Beim Laden dieser Bilder wird deine IP-Adresse an Google übertragen. Wenn du dies nicht möchtest, kannst du das Laden externer Bilder in deinen Browsereinstellungen blockieren."
-          : "To display provider logos on the offer cards, this website loads favicons from the Google Favicon Service (google.com/s2/favicons). When these images load, your IP address is transmitted to Google. If you do not want this, you can block the loading of external images in your browser settings."}
+          ? "Zur Darstellung der Anbieter-Logos in den Angebotskarten lädt diese Website Favicons vom DuckDuckGo Icon Service (icons.duckduckgo.com). Beim Laden dieser Bilder wird deine IP-Adresse an DuckDuckGo übertragen. Wenn du dies nicht möchtest, kannst du das Laden externer Bilder in deinen Browsereinstellungen blockieren."
+          : "To display provider logos on the offer cards, this website loads favicons from the DuckDuckGo Icon Service (icons.duckduckgo.com). When these images load, your IP address is transmitted to DuckDuckGo. If you do not want this, you can block the loading of external images in your browser settings."}
       </P>
       <P>
         {de
@@ -158,9 +158,9 @@ export function PrivacyContent() {
           : "Legal basis: Art. 6(1)(f) GDPR (legitimate interest in a visually appealing presentation of the offers)."}
       </P>
       <P>
-        {de ? "Anbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland." : "Provider: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland."}{" "}
-        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
-          policies.google.com/privacy
+        {de ? "Anbieter: DuckDuckGo, 20 Pocket Rd, Paoli, PA 19301, USA." : "Provider: DuckDuckGo, 20 Pocket Rd, Paoli, PA 19301, USA."}{" "}
+        <a href="https://duckduckgo.com/privacy" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
+          duckduckgo.com/privacy
         </a>
       </P>
 

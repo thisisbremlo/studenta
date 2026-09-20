@@ -189,7 +189,9 @@ export function MacAppsPage() {
 function faviconUrl(url: string) {
   try {
     const host = new URL(url).hostname;
-    return `https://www.google.com/s2/favicons?domain=${host}&sz=64`;
+    // Google's favicon service intermittently serves broken placeholder
+    // images; DuckDuckGo's icon service is more reliable.
+    return `https://icons.duckduckgo.com/ip3/${host}.ico`;
   } catch {
     return null;
   }
