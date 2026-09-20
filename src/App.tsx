@@ -126,7 +126,7 @@ function BenefitCardView({ benefit, locale }: { benefit: Benefit; locale: Locale
             <span className="truncate text-xs font-semibold text-foreground">{b.offer}</span>
           </span>
           <span
-            className="shrink-0 whitespace-nowrap text-right text-[11px] leading-tight text-muted-foreground/70"
+            className="max-w-[45%] shrink-0 truncate text-right text-[11px] leading-tight text-muted-foreground/70"
             title={b.value}
           >
             {b.value}
@@ -192,13 +192,13 @@ function App() {
         </Reveal>
 
         {/* Search + category + pricing filter */}
-        <Reveal delay={240} className="relative mx-auto mt-6 flex max-w-md items-center gap-2">
+        <Reveal delay={240} className="mx-auto mt-6 flex w-full max-w-md items-center gap-2">
           {/* Category dropdown */}
-          <div className="relative">
+          <div className="relative shrink-0">
             <button
               onClick={() => setCategoryOpen((o) => !o)}
               aria-expanded={categoryOpen}
-              className={`inline-flex h-10 items-center gap-1.5 rounded-md border px-3 text-sm font-medium transition-all ${
+              className={`inline-flex h-10 items-center gap-1.5 rounded-md border px-2.5 text-sm font-medium transition-all sm:px-3 ${
                 activeCategory !== "all"
                   ? "border-primary/50 bg-primary text-primary-foreground"
                   : "border-input bg-secondary text-muted-foreground hover:text-foreground"
@@ -209,8 +209,8 @@ function App() {
                 const Icon = activeCat ? iconMap[activeCat.icon] : LayoutGrid;
                 return (
                   <>
-                    <Icon className="h-3.5 w-3.5" />
-                    <span className="max-w-24 truncate">
+                    <Icon className="h-3.5 w-3.5 shrink-0" />
+                    <span className="max-w-[4.25rem] truncate sm:max-w-24">
                       {activeCat ? (locale === "de" ? activeCat.labelDe : activeCat.label) : t("categoryAll")}
                     </span>
                     <ChevronDown className={`h-3.5 w-3.5 transition-transform ${categoryOpen ? "rotate-180" : ""}`} />
@@ -274,7 +274,7 @@ function App() {
           </div>
 
           {/* Search + pricing filter */}
-          <div className="relative flex-1">
+          <div className="relative min-w-0 flex-1">
           <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <input
             type="text"
