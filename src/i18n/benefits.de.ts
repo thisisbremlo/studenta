@@ -36,8 +36,226 @@ export const benefitTranslations: Record<Locale, Record<string, BenefitTranslati
     cursor: {
       tagline: "KI-first Code-Editor",
       description:
-        "Der KI-Code-Editor auf VS-Code-Basis. Studierende bekommen ein Jahr Cursor Pro mit unbegrenzten Completions und Premium-Modell-Requests.",
-      offer: "1 Jahr kostenlos",
+        "Der KI-Code-Editor auf VS-Code-Basis. Das alte Gratis-Angebot von einem Jahr Pro für neue Registrierungen wurde am 25. Juni 2026 eingestellt — der kostenlose Hobby-Plan bleibt, bereits eingelöste Angebote laufen bis zum Ablauf weiter.",
+      offer: "Hobby gratis (Pro-Angebot eingestellt)",
+      value: "20 $/Monat (Pro)",
+    },
+    gemini: {
+      tagline: "KI-Assistent mit Gratis-Tarif",
+      description:
+        "Googles KI-Assistent — der Gratis-Tarif deckt den alltäglichen Studiengebrauch ab. Studentenpreise und Verfügbarkeit variieren je nach Land und Hochschule; aktuelle Berechtigung im Google-Konto prüfen.",
+      offer: "Gratis-Tarif (Studenten-Angebote variieren)",
+      value: "20 $/Monat (Pro)",
+    },
+    mongodb: {
+      tagline: "50 $ Atlas-Guthaben + Gratis-Zertifizierung",
+      description:
+        "NoSQL-Dokumentendatenbank. Verifizierte Studierende erhalten 50 $ Atlas-Guthaben, MongoDB Compass und die Gratis-Zertifizierung der MongoDB University — rund 200 $ Gesamtwert über das GitHub Student Pack.",
+      offer: "50 $ Guthaben + Gratis-Zertifizierung",
+      value: "ca. 200 $ Wert",
+    },
+    awseducate: {
+      tagline: "AWS-Labs und Guthaben zum Lernen",
+      description:
+        "Gratis-Lerninhalte, Labs und AWS-Guthaben bzw. Free-Tier-Zugang je nach Berechtigung. Kein unbegrenztes kostenloses AWS — über das enthaltene Guthaben hinaus können Kosten entstehen.",
+      offer: "Gratis-Lernen + AWS-Guthaben",
+      value: "Je nach Programm",
+    },
+    gcpedu: {
+      tagline: "Studenten-Guthaben für Google Cloud",
+      description:
+        "Google-Cloud-Bildungsprogramme stellen Studierendenguthaben bereit, z. B. Google-Skills-Guthaben, das nach einem Jahr abläuft. Höhe und Laufzeit variieren je nach Programm und Region.",
+      offer: "Studenten-Guthaben (variabel)",
+      value: "Je nach Programm",
+    },
+    oraclecloud: {
+      tagline: "Immer-kostenlose Cloud-Ressourcen",
+      description:
+        "Der Free Tier von Oracle Cloud enthält dauerhaft kostenlose Ressourcen: zwei AMD-VMs, Arm-Instanzen mit bis zu 4 OCPUs und 24 GB RAM, dazu Datenbanken und Storage innerhalb der Limits.",
+      offer: "Always-Free-Tier",
+      value: "0 $ mit Limits",
+    },
+    postman: {
+      tagline: "API-Plattform + Gratis-Zertifizierung",
+      description:
+        "Die branchenübliche API-Plattform zum Bauen, Testen und Dokumentieren von APIs. Das Student-Expert-Programm und die Zertifizierung sind kostenlos, wo angeboten.",
+      offer: "Gratis-Programm + Zertifizierung",
+      value: "0 $",
+    },
+    paypalsandbox: {
+      tagline: "Kostenlose Zahlungs-Testumgebung",
+      description:
+        "Checkout- und Zahlungsflüsse in PayPals Sandbox mit fiktiven Konten und Spielgeld testen — Sandbox-Geld ist nicht echt, und die Entwicklerumgebung ist kostenlos.",
+      offer: "Sandbox gratis",
+      value: "0 $",
+    },
+    redhatdev: {
+      tagline: "Gratis-RHEL-Entwickler-Abo",
+      description:
+        "Kostenloses Einzelentwickler-Abo inklusive Red Hat Enterprise Linux mit Entwickler-Tooling und Updates — für alle Entwickler kostenlos, nicht nur für Studierende.",
+      offer: "Kostenlos für Einzelpersonen",
+      value: "0 $",
+    },
+    inteldevzone: {
+      tagline: "Gratis-Entwicklerressourcen von Intel",
+      description:
+        "Zugang zu Intels Entwickler-Tools, SDKs und Lernressourcen — kostenlos. Manche Tools oder Support können separate Lizenzbedingungen haben.",
+      offer: "Kostenlose Ressourcen",
+      value: "0 $",
+    },
+    interviewbit: {
+      tagline: "Strukturierte Interview-Vorbereitung, gratis",
+      description:
+        "Strukturierte Vorbereitung auf Programmier-Interviews mit zeitlich getakteten Übungsstrecken zu Datenstrukturen, Algorithmen und Systemdesign. Übungsinhalte gratis; Premium-Features kostenpflichtig.",
+      offer: "Übungsinhalte gratis",
+      value: "Kostenlos",
+    },
+    hackerrank: {
+      tagline: "Gratis-Skill-Zertifizierungen",
+      description:
+        "Kostenlose Skill-Verifizierungen für Python, SQL, React, Problem Solving und mehr — ein schneller Eintrag für Lebenslauf und LinkedIn. Nicht alle Vorbereitungsinhalte sind gratis.",
+      offer: "Zertifizierungen gratis",
+      value: "0 $",
+    },
+    kaggle: {
+      tagline: "Gratis-Notebooks, GPU & Datensätze",
+      description:
+        "Kostenlose Browser-Notebooks mit begrenzter GPU-/TPU-Rechenleistung, über 100.000 öffentliche Datensätze und Wettbewerbe — der Standard-Spielplatz für Data-Science-Studierende. Nutzungsquoten gelten.",
+      offer: "Kostenlos (mit Quoten)",
+      value: "0 $",
+    },
+    gdsc: {
+      tagline: "Gratis-Community-Events & Workshops",
+      description:
+        "Googles Campus-Communities veranstalten kostenlose Events, Workshops und Study Jams zu Cloud, KI und Android — gelegentlich mit Sponsor-Guthaben. Vorteile variieren je nach Club und Event.",
+      offer: "Mitgliedschaft gratis",
+      value: "0 $",
+    },
+    mslearn: {
+      tagline: "Kostenlose Microsoft-Lernpfade",
+      description:
+        "Kostenlose interaktive Lernpfade und Challenges für Azure, .NET, KI und mehr — inklusive studierendenspezifischer Challenges und ausgewählter Gratis-Zertifizierungsangebote.",
+      offer: "Kostenlos",
+      value: "0 $",
+    },
+    ibmskillsbuild: {
+      tagline: "Kostenlose Kurse mit Zertifikaten",
+      description:
+        "Kostenlose Lernressourcen und digitale Zertifikate zu KI, Cybersecurity, Daten und Nachhaltigkeit. Kursverfügbarkeit variiert je nach Region.",
+      offer: "Kostenlos",
+      value: "0 $",
+    },
+    udemyfree: {
+      tagline: "Hunderte kostenlose Kurse",
+      description:
+        "Der Gratis-Kursbereich von Udemy bietet hunderte vollständige Kurse zu Programmierung, Design und Business — kostenlos von den Dozent:innen veröffentlicht. Nicht alle Udemy-Kurse sind gratis.",
+      offer: "Kostenlose Kurse",
+      value: "0 $",
+    },
+    mlh: {
+      tagline: "Hackathons mit Guthaben & Swag",
+      description:
+        "Die offizielle Studenten-Hackathon-Liga: kostenlose Events mit Sponsor-Cloud-Guthaben, Swag und Preisen. Verfügbarkeit variiert je nach Event und Sponsor.",
+      offer: "Teilnahme gratis",
+      value: "Je nach Event",
+    },
+    unidays: {
+      tagline: "Gratis-Studenten-Rabattportal",
+      description:
+        "Kostenlose Mitgliedschaft mit Markenrabatten in Mode, Tech, Food und Fitness — Nike, adidas, ASOS, McFit und viele mehr. Rabatte variieren je nach Marke und Land.",
+      offer: "Mitgliedschaft gratis",
+      value: "Rabatte bei 100+ Marken",
+    },
+    studentbeans: {
+      tagline: "Gratis-Studenten-Rabattportal",
+      description:
+        "Kostenlose Studenten-Mitgliedschaft mit Rabattcodes bei hunderten Marken — eine Alternative zu UNiDAYS mit teils anderer Partnerliste. Rabatte variieren je nach Marke und Land.",
+      offer: "Mitgliedschaft gratis",
+      value: "Rabatte bei 100+ Marken",
+    },
+    blender: {
+      tagline: "Open-Source-3D-Suite",
+      description:
+        "Die freie Open-Source-3D-Suite für Modeling, Sculpting, Animation, Rendering und VFX — keine Studenten-Verifizierung nötig, sie ist für alle kostenlos.",
+      offer: "Kostenlos (Open Source)",
+      value: "0 $",
+    },
+    miro: {
+      tagline: "Kollaboratives Whiteboard, gratis",
+      description:
+        "Das unendliche kollaborative Whiteboard für Brainstorming, Diagramme und Gruppenarbeit. Der Education-Plan ist für berechtigte Studierende und Lehrende gratis; Verifizierung kann erneuert werden.",
+      offer: "Kostenlos während des Studiums",
+      value: "8 $/Monat",
+    },
+    loom: {
+      tagline: "Asynchrone Video-Nachrichten, gratis",
+      description:
+        "Schnelle Bildschirm- und Kameravideos aufnehmen, um Code zu erklären, Feedback zu geben oder Projekte asynchron zu präsentieren. Der Education-Plan ist für Berechtigte gratis.",
+      offer: "Kostenlos während des Studiums",
+      value: "15 $/Monat",
+    },
+    clickup: {
+      tagline: "Alles-in-einem für Aufgaben & Projekte",
+      description:
+        "Aufgaben, Docs, Ziele und Whiteboards in einem Workspace. Studierende, Lehrende und Hochschulen bekommen Rabatte auf Bezahlpläne — aktuelle Berechtigung und Konditionen prüfen.",
+      offer: "Education-Rabatt",
+      value: "Bei Unlimited/Business sparen",
+    },
+    airtable: {
+      tagline: "Team-Plan bis 24 Monate gratis",
+      description:
+        "Tabellen-Datenbank-Hybrid zum Organisieren von allem. Qualifizierte Studierende bekommen 6–24 Monate kostenlosen Team-Plan-Zugang je voraussichtlichem Abschlussdatum.",
+      offer: "6–24 Monate gratis",
+      value: "20 $/Nutzer/Monat",
+    },
+    sketch: {
+      tagline: "Mac-natives UI-Design, ca. 50% günstiger",
+      description:
+        "Mac-natives UI-Design-Tool mit Vektorbearbeitung und Prototyping. Education-Preise liegen für Berechtigte bei etwa der Hälfte — historisch rund 50% Rabatt statt gratis.",
+      offer: "ca. 50% Rabatt",
+      value: "ca. 50% sparen",
+    },
+    hackthebox: {
+      tagline: "Praxisnahe Hacking-Labs, Studenten-Plan",
+      description:
+        "Praxisnahe Cybersecurity-Labs und geführte Module vom Einstieg bis zum Zertifizierungsniveau. Verifizierte Studierende zahlen 8 $/Monat für das Academy-Abo.",
+      offer: "8 $/Monat Studenten-Plan",
+      value: "Günstiger als Standard-Tarife",
+    },
+    tryhackme: {
+      tagline: "Geführte Hacking-Labs, Studentenrabatt",
+      description:
+        "Anfängerfreundliche, geführte Cybersecurity-Labs mit Lernpfaden vom ersten Scan bis zum Red Team. Verifizierte Studierende bekommen Rabatt auf Premium-Abos.",
+      offer: "Studentenrabatt",
+      value: "Günstiger als Premium",
+    },
+    courserafinancialaid: {
+      tagline: "Kurse gratis über Finanzzuschuss",
+      description:
+        "Courseras Finanzzuschuss kann einen einzelnen Kurs — inklusive bewertetem Zertifikat — kostenlos machen. Anträge werden pro Kurs geprüft und dauern rund zwei Wochen.",
+      offer: "Kostenlos (Antrag pro Kurs)",
+      value: "49–99 $/Kurs sparen",
+    },
+    studentsid: {
+      tagline: "Studententarife bei Airlines",
+      description:
+        "Studententarife und Rabatte auf Flüge variieren je nach Airline und Buchungsplattform — viele Airlines bieten sie an, aber es gibt kein einziges offizielles globales Programm. Tarifpolitik je Airline prüfen.",
+      offer: "Je nach Airline",
+      value: "Je Airline prüfen",
+    },
+    opensourcedevcert: {
+      tagline: "Kostenlose TLS-Zertifikate für alle",
+      description:
+        "Kostenlose, automatisierte TLS-Zertifikate für jede Website — der Standard für HTTPS in Studierendenprojekten und Portfolios. Zusätzlich zu Namecheaps gratis SSL im ersten Jahr über das GitHub Student Pack.",
+      offer: "Kostenlos",
+      value: "0 $",
+    },
+    blenderswap: {
+      tagline: "Kostenlose CC-3D-Modelle für Projekte",
+      description:
+        "Sketchfab hostet tausende kostenlose 3D-Modelle unter Creative-Commons-Lizenz für Blender, Unity und Game-Projekte — praktische Assets für Design- und Game-Dev-Kurse.",
+      offer: "Kostenlose CC-Modelle",
+      value: "0 $",
     },
     perplexity: {
       tagline: "KI-Rechercheassistent, 50% günstiger",
