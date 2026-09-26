@@ -10,6 +10,8 @@ import {
   ExternalLink,
   Sparkles,
   ArrowLeft,
+  ArrowUpDown,
+  Clock,
 } from "lucide-react";
 import {
   macApps,
@@ -35,6 +37,8 @@ export function MacAppsPage() {
   const de = locale === "de";
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<MacAppCategory | null>(null);
+  type SortMode = "recommended" | "updated" | "name";
+  const [sort, setSort] = useState<SortMode>("recommended");
 
   useEffect(() => {
     document.title = de
@@ -71,7 +75,13 @@ export function MacAppsPage() {
 
   const sorted = useMemo(() => {
     const apps = [...filtered];
-    // Sort: free first, then featured, then alphabetical
+    if (sort === "updated") {
+      return apps.sort((a, b) => b.updated.localeCompare(a.updated));
+    }
+    if (sort === "name") {
+      return apps.sort((a, b) => a.name.localeCompare(b.name));
+    }
+    // Recommended: free first, then featured, then alphabetical
     apps.sort((a, b) => {
       const aPrice = de ? a.priceDe : a.price;
       const bPrice = de ? b.priceDe : b.price;
@@ -82,7 +92,7 @@ export function MacAppsPage() {
       return a.name.localeCompare(b.name);
     });
     return apps;
-  }, [filtered, de]);
+  }, [filtered, sort, de]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -117,16 +127,31 @@ export function MacAppsPage() {
           </Reveal>
         </div>
 
-        {/* Search */}
-        <Reveal delay={240} className="relative mb-8 max-w-md">
-          <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={de ? "Apps suchen..." : "Search apps..."}
-            className="w-full rounded-full border border-input bg-background py-2.5 pl-10 pr-4 text-sm shadow-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring/20"
-          />
+        {/* Search + sort */}
+        <Reveal delay={240} className="mb-8 flex flex-wrap items-center gap-3">
+          <div className="relative max-w-md flex-1">
+            <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={de ? "Apps suchen..." : "Search apps..."}
+              className="w-full rounded-full border border-input bg-background py-2.5 pl-10 pr-4 text-sm shadow-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring/20"
+            />
+          </div>
+          <label className="inline-flex items-center gap-2 rounded-full border border-input bg-background py-2 pl-3.5 pr-2 text-sm shadow-sm">
+            <ArrowUpDown className="h-4 w-4 shrink-0 text-muted-foreground" />
+            <span className="sr-only">{t("macAppsSortLabel")}</span>
+            <select
+              value={sort}
+              onChange={(e) => setSort(e.target.value as SortMode)}
+              className="cursor-pointer appearance-none bg-transparent pr-1 text-sm outline-none"
+            >
+              <option value="recommended">{t("macAppsSortRecommended")}</option>
+              <option value="updated">{t("macAppsSortUpdated")}</option>
+              <option value="name">{t("macAppsSortName")}</option>
+            </select>
+          </label>
         </Reveal>
 
         {/* Category pills */}
@@ -238,10 +263,24 @@ function MacAppCard({ app, de }: { app: MacApp; de: boolean }) {
       <p className="mt-1.5 flex-1 text-sm leading-relaxed text-muted-foreground">
         {de ? app.descriptionDe : app.description}
       </p>
-      <div className="mt-4 flex items-center gap-1 text-xs font-medium text-muted-foreground transition-colors group-hover:text-foreground">
+      <div className="mt-4 flex items-center justify-between gap-2 text-xs font-medium text-muted-foreground transition-colors group-hover:text-foreground">
+        <span className="inline-flex items-center gap-1">
+          <Clock className="h-3 w-3" />
+          {de ? "Aktualisiert" : "Updated"} {formatDate(app.updated, de)}
+        </span>
         {de ? (cat?.labelDe ?? "") : (cat?.label ?? "")}
-        <ExternalLink className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
+        <ExternalLink className="h-3 w-3 shrink-0 opacity-0 transition-opacity group-hover:opacity-100" />
       </div>
     </a>
   );
+}
+
+function formatDate(iso: string, de: boolean) {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString(de ? "de-DE" : "en-GB", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 }

@@ -40,6 +40,11 @@ const strings = {
     macAppsNoResults: "No apps found",
     macAppsNoResultsHint: "Try a different search or category.",
     macAppsNote: "Independent recommendations. No affiliation with the app developers.",
+    macAppsSortLabel: "Sort by",
+    macAppsSortRecommended: "Recommended",
+    macAppsSortUpdated: "Recently updated",
+    macAppsSortName: "Name (A–Z)",
+    macAppsUpdated: "Updated",
   },
   de: {
     heroBadge: "Stand 2026",
@@ -78,6 +83,11 @@ const strings = {
     macAppsNoResults: "Keine Apps gefunden",
     macAppsNoResultsHint: "Versuche eine andere Suche oder Kategorie.",
     macAppsNote: "Unabhängige Empfehlungen. Keine Verbindung zu den App-Entwicklern.",
+    macAppsSortLabel: "Sortieren",
+    macAppsSortRecommended: "Empfohlen",
+    macAppsSortUpdated: "Zuletzt aktualisiert",
+    macAppsSortName: "Name (A–Z)",
+    macAppsUpdated: "Aktualisiert",
   },
 } as const;
 
